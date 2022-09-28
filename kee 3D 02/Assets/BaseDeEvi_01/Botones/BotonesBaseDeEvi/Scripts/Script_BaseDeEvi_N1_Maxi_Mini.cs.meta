@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 6a41b8a5849cbdc4b8791ad9758a86dd
+timeCreated: 1604689200
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - MaterialBtnMaximiza: {fileID: 2100000, guid: 7d128a8117ce51a4bba33a6a87a240d3,
+      type: 2}
+  - MaterialBtnMinimiza: {fileID: 2100000, guid: 19ee46f3e0d2c194c9a91e6f873b8cd8,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

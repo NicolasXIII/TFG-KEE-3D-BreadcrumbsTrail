@@ -1,0 +1,37 @@
+fileFormatVersion: 2
+guid: ada2adbfce2fc9e4a878e50a7bf67daa
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ctrlInterfaz: {instanceID: 0}
+  - Usuario: {instanceID: 0}
+  - esteCanvasEviBase: {fileID: 6427342192595205004, guid: 06ddccb2719bd2843b8e7f027a407511,
+      type: 3}
+  - Tramoya: {instanceID: 0}
+  - estePunteroUsuario: {instanceID: 0}
+  - estePunteroTramoya: {instanceID: 0}
+  - ContenedorDeEvi_01: {instanceID: 0}
+  - ImgAyuIntfBaseDeEvi: {instanceID: 0}
+  - material_imagen_AyuIntf: {instanceID: 0}
+  - textura_imagen_AyuIntf: {instanceID: 0}
+  - material_ImgAyuIntfBaseDeEvi: {instanceID: 0}
+  - textura_ImgAyuIntfBaseDeEvi: {instanceID: 0}
+  - material_icono_AyuIntf: {instanceID: 0}
+  - textura_icono_AyuIntf: {instanceID: 0}
+  - AudioClip_AyuIntf: {instanceID: 0}
+  - Btn_Evi_Info: {fileID: 1167059817826862, guid: d83a6fb7f7caa87489c603c56713d63e,
+      type: 3}
+  - Btn_Evi_Maxi_Mini: {fileID: 1055791413650776, guid: eeac8d988ead3b444b8818cab2052595,
+      type: 3}
+  - Btn_Evi_Desplazar: {fileID: 1263681243517304, guid: 169b4952b091e4a40ba87101a0dd81c3,
+      type: 3}
+  - Btn_Evi_Opciones: {fileID: 1676007680710498, guid: 489512bd32a4f5b46aae09309b416fb8,
+      type: 3}
+  - Btn_Evi_Caja_opciones: {fileID: 1106085932239622, guid: a326f1794dd18cf47bfdece5a1426e4d,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

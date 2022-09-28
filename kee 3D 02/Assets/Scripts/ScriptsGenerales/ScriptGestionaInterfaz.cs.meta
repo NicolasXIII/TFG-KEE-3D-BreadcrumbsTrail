@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2fe065187007f3e4d85eff86f9c3e00e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Usuario: {instanceID: 0}
+  - audio_aparta_evi: {fileID: 8300000, guid: 26c26f1a5880cdc4995f3e7ec38cc410, type: 3}
+  - altavoz_uauario: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

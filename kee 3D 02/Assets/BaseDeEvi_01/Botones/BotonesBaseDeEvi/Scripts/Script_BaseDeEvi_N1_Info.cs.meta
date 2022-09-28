@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0491cf8697fd0df4e82670bfad5e0ca9
+timeCreated: 1604689172
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audio_AyuIntf: {fileID: 8300000, guid: 26c26f1a5880cdc4995f3e7ec38cc410, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

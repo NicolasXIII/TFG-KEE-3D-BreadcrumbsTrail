@@ -1,0 +1,263 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1076884817029812}
+  m_IsPrefabParent: 1
+--- !u!1 &1076884817029812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4308056675645740}
+  - component: {fileID: 114494174796192520}
+  m_Layer: 0
+  m_Name: ctrlInterfaz
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4308056675645740
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076884817029812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114494174796192520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076884817029812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2d705cbe344734fba465baa7a0449a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usrKey: 
+  usrHost: 
+  usrNombre: 
+  usrPasword: 
+  muro_Activo: {fileID: 0}
+  pixels_x_Pantalla: 0
+  pixels_y_Pantalla: 0
+  ancho_x_Pantalla: 0
+  alto_y_Pantalla: 0
+  ratio_dimensiones_Pantalla: 0
+  modificaOrientacionMonitor: 0
+  posicion_x_Usuario: 0
+  posicion_y_Usuario: 0
+  posicion_z_Usuario: 0
+  posicionUsuario: {x: 0, y: 0, z: 0}
+  escala_x_Usuario: 0
+  escala_y_Usuario: 0
+  escala_z_Usuario: 0
+  velocidad_usr_X: 0
+  velocidad_usr_Y: 0
+  velocidad_usr_Z: 0
+  cercaDeUsuario: 0
+  usuarioEnMuro: 0
+  modificaVelocidad: 0
+  posicion_x_PunteroUsuario: 0
+  posicion_y_PunteroUsuario: 0
+  posicion_z_PunteroUsuario: 0
+  posicionPunteroUsuario: {x: 0, y: 0, z: 0}
+  escala_x_PunteroUsuario: 0
+  escala_y_PunteroUsuario: 0
+  escala_z_PunteroUsuario: 0
+  escalaPunteroUsuario: {x: 0, y: 0, z: 0}
+  velocidad_PunteroUsuario_X: 0
+  velocidad_PunteroUsuario_Y: 0
+  velocidad_PunteroUsuario_Z: 0
+  posicion_x_PuntMuroUsuario: 0
+  posicion_y_PuntMuroUsuario: 0
+  posicion_z_PuntMuroUsuario: 0
+  posicionPuntMuroUsuario: {x: 0, y: 0, z: 0}
+  escala_x_PuntMuroUsuario: 0
+  escala_y_PuntMuroUsuario: 0
+  escala_z_PuntMuroUsuario: 0
+  escalaPuntMuroUsuario: {x: 0, y: 0, z: 0}
+  materialBaseDeEvi_01: {fileID: 0}
+  materialEvi_01: {fileID: 2100000, guid: ccb37437a88fe094a934914c64c874ba, type: 2}
+  materialEviActivo: {fileID: 2100000, guid: 52931cd7c5716324f997a24a31877cb7, type: 2}
+  materialEviConDatos: {fileID: 0}
+  MaterialEviTipo_buscador_00: {fileID: 0}
+  distanciaLuzUsuario: {x: 0, y: 0, z: 0}
+  distanciaCamaraUsuario: {x: 0, y: 0, z: 0}
+  campoVisionCamara: 0
+  escala_x_Telones: 0
+  escala_y_Telones: 0
+  escala_z_Telones: 0
+  escalaTelones: {x: 0, y: 0, z: 0}
+  positionTelones: {x: 0, y: 0, z: 0}
+  giroOrientacionTelones: {x: 0, y: 0, z: 0, w: 0}
+  distanciaTelones: {x: 0, y: 0, z: 0}
+  escala_x_MuroUsuario: 0
+  escala_y_MuroUsuario: 0
+  escala_z_MuroUsuario: 0
+  escalaMuroUsuario: {x: 0, y: 0, z: 0}
+  positionMuroUsuario: {x: 0, y: 0, z: 0}
+  giroOrientacionMuroUsuario: {x: 0, y: 0, z: 0, w: 0}
+  distanciaMuroUsuario: {x: 0, y: 0, z: 0}
+  posicion_x_BtnMenu_N1_General: 0
+  posicion_y_BtnMenu_N1_General: 0
+  posicion_z_BtnMenu_N1_General: 0
+  escala_x_BtnMenu_N1_General: 0
+  escala_y_BtnMenu_N1_General: 0
+  escala_z_BtnMenu_N1_General: 0
+  posicion_BtnMenu_N1_General: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N1_General: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N1_1_Gereral_CtrlInterfaz: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N1_1_Gereral_CtrlInterfaz: {x: 0, y: 0, z: 0}
+  NumBtn_BtnMenu_N1_1_Gereral_CtrlInterfaz: 0
+  posicion_BtnMenu_N1_1_Gereral_Escena: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N1_1_Gereral_Escena: {x: 0, y: 0, z: 0}
+  NumBtn_BtnMenu_N1_1_Gereral_Escena: 0
+  posicion_BtnMenu_N1_1_Gereral_Herramientas: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N1_1_Gereral_Herramientas: {x: 0, y: 0, z: 0}
+  NumBtn_BtnMenu_N1_1_Gereral_Herramientas: 0
+  posicion_BtnMenu_N2_CtrlInterfaz: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_CtrlInterfaz: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_CtrlInterfaz_cargar: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_cargar: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_cargar_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_CtrlInterfaz_grabar: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_grabar: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_grabar_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_CtrlInterfaz_audio: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_audio: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_audio_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_CtrlInterfaz_complejidad: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_complejidad: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_complejidad_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_CtrlInterfaz_idiomas: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_idiomas: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_idiomas_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_CtrlInterfaz_ambito: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_ambito: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_CtrlInterfaz_ambito_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_Escena: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_Escena: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_Escena_CreaMuro: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Escena_CreaMuro: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Escena_CreaMuro_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_Escena_EliminaMuro: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Escena_EliminaMuro: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Escena_EliminaMuro_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_Escena_LigaMuro: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Escena_LigaMuro: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Escena_LigaMuro_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_Escena_DesligaMuro: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Escena_DesligaMuro: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Escena_DesligaMuro_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_Herramientas: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_Herramientas: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_Herramientas_buscador: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Herramientas_buscador: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Herramientas_buscador_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_Herramientas_mochila: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Herramientas_mochila: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Herramientas_mochila_Activado: {x: 0, y: 0, z: 0}
+  posicion_BtnMenu_N2_1_Herramientas_agentes: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Herramientas_agentes: {x: 0, y: 0, z: 0}
+  escala_BtnMenu_N2_1_Herramientas_agentes_Activado: {x: 0, y: 0, z: 0}
+  escala_x_MuroTrabajo: 0
+  escala_y_MuroTrabajo: 0
+  escala_z_MuroTrabajo: 0
+  escalaMuroTrabajo: {x: 0, y: 0, z: 0}
+  giroOrientacion_x_MuroTrabajo: 0
+  giroOrientacion_y_MuroTrabajo: 0
+  giroOrientacion_z_MuroTrabajo: 0
+  giroOrientacionMuroTrabajo: {x: 0, y: 0, z: 0, w: 0}
+  distanciaEntreMuros: 0
+  numMuros: 0
+  materialMuroActivo: {fileID: 2100000, guid: 81a5f8f44765244428b8fa8895d31645, type: 2}
+  materialMuroInactivo: {fileID: 2100000, guid: 9898b42ea72970843abddf6c522bb44d,
+    type: 2}
+  escalaLocal_x_BaseDeEvi_01: 0
+  escalaLocal_y_BaseDeEvi_01: 0
+  escalaLocal_z_BaseDeEvi_01: 0
+  estaEscalaBaseDeEvi_01: {x: 0, y: 0, z: 0}
+  escalaLocal_x_EviTipo_00: 0
+  escalaLocal_y_EviTipo_00: 0
+  escalaLocal_z_EviTipo_00: 0
+  estaEscalaEviTipo_00: {x: 0, y: 0, z: 0}
+  escalaLocal_x_EviFractal_00: 0
+  escalaLocal_y_EviFractal_00: 0
+  escalaLocal_z_EviFractal_00: 0
+  estaEscalaEviFractal_00: {x: 0, y: 0, z: 0}
+  escalaLocal_x_EviTipo_muestraGetDetails_00: 0
+  escalaLocal_y_EviTipo_muestraGetDetails_00: 0
+  escalaLocal_z_EviTipo_muestraGetDetails_00: 0
+  estaEscalaEviTipo_muestraGetDetails_00: {x: 0, y: 0, z: 0}
+  escalaLocal_x_EviTipo_buscador_00: 0
+  escalaLocal_y_EviTipo_buscador_00: 0
+  escalaLocal_z_EviTipo_buscador_00: 0
+  estaEscalaEviTipo_buscador_00: {x: 0, y: 0, z: 0}
+  escalaLocal_x_EviTipo_buscador_00_Activado: 0
+  escalaLocal_y_EviTipo_buscador_00_Activado: 0
+  escalaLocal_z_EviTipo_buscador_00_Activado: 0
+  estaEscalaEviTipo_buscador_00_Activado: {x: 0, y: 0, z: 0}
+  factor_mod_escalaLocal_EviTipo_buscador_00_Activado: 0
+  Usuario: {fileID: 0}
+  PunteroUsuario: {fileID: 0}
+  MuroUsuario: {fileID: 0}
+  BtnMenu_N1_General: {fileID: 1034919447018508, guid: 89d3df8dc166ed248a2e79d271179373,
+    type: 2}
+  BtnMenu_N1_1_Gereral_CtrlInterfaz: {fileID: 0}
+  BtnMenu_N1_1_Gereral_Escena: {fileID: 0}
+  BtnMenu_N1_1_Gereral_Herramientas: {fileID: 0}
+  BtnMenu_N2_CtrlInterfaz: {fileID: 0}
+  BtnMenu_N2_1_CtrlInterfaz_cargar: {fileID: 0}
+  BtnMenu_N2_1_CtrlInterfaz_grabar: {fileID: 0}
+  BtnMenu_N2_1_CtrlInterfaz_audio: {fileID: 0}
+  BtnMenu_N2_1_CtrlInterfaz_complejidad: {fileID: 0}
+  BtnMenu_N2_1_CtrlInterfaz_idiomas: {fileID: 0}
+  BtnMenu_N2_1_CtrlInterfaz_ambito: {fileID: 0}
+  BtnMenu_N2_Escena: {fileID: 0}
+  BtnMenu_N2_1_Escena_CreaMuro: {fileID: 0}
+  BtnMenu_N2_1_Escena_EliminaMuro: {fileID: 0}
+  BtnMenu_N2_1_Escena_LigaMuro: {fileID: 0}
+  BtnMenu_N2_1_Escena_DesligaMuro: {fileID: 0}
+  BtnMenu_N2_Herramientas: {fileID: 0}
+  BtnMenu_N2_1_Herramientas_buscador: {fileID: 0}
+  BtnMenu_N2_1_Herramientas_mochila: {fileID: 0}
+  BtnMenu_N2_1_Herramientas_agentes: {fileID: 0}
+  Btn_Evi_Info: {fileID: 0}
+  Btn_Evi_Maxi_Mini: {fileID: 0}
+  Btn_Evi_Desplazar: {fileID: 0}
+  Btn_Evi_Opciones: {fileID: 0}
+  Btn_Evi_Caja_opciones: {fileID: 0}
+  Btn_Evi_op_Expandir: {fileID: 0}
+  Btn_Evi_op_Editar: {fileID: 0}
+  Btn_Evi_op_Clonar: {fileID: 0}
+  Btn_Evi_op_Eliminar: {fileID: 0}
+  Telones: {fileID: 0}
+  telon: {fileID: 0}
+  Muros: {fileID: 0}
+  muro: {fileID: 1957368690394040, guid: 966bda7263f075a4ab4496e187647c6c, type: 2}
+  BaseDeEvi_01: {fileID: 0}
+  EviTipo_00: {fileID: 1534399607397202, guid: a1b734c4a8d1e724eb392e2783b5f317, type: 2}
+  EviFractal_00: {fileID: 1893326042114994, guid: cb45654bf1f67d445bb4cd0941dbc9b2,
+    type: 2}
+  EviTipo_muestraGetDetails_00: {fileID: 1315478504371342, guid: ba7e3d738efc7374b9dba1b2a0cffb1f,
+    type: 2}
+  EviTipo_buscador_00: {fileID: 1352939575243828, guid: 25f840037597d7d4cb157561e38d290a,
+    type: 2}
