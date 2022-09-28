@@ -1594,6 +1594,8 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         posicion_BtnMenu_N2_1_Herramientas_agentes = new Vector3(-1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas, 0f, 0f);
         escala_BtnMenu_N2_1_Herramientas_agentes = new Vector3(((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), factorReduccion01, 1f);
         escala_BtnMenu_N2_1_Herramientas_agentes_Activado = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 1f, 1f);
+        
+        
         // Autor Nicolas Merino Ramirez
         // Fecha 27/06/2022
         // Descripcion
