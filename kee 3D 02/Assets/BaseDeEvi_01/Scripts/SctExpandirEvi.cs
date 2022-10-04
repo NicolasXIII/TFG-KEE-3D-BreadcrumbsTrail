@@ -105,6 +105,9 @@ public class SctExpandirEvi : MonoBehaviour {
     /// </summary>
     public void botonExpandeEvi()
     {
+        
+
+
 
         // ///////////////////////////////////////////
         // ///////////////////////////////////////////
@@ -142,6 +145,7 @@ public class SctExpandirEvi : MonoBehaviour {
             }  // Fin de - foreach (GameObject hijo in GetComponent<ScriptDatosElemenItf>().listaDeHijos)
 
         }  // Fin de - if (GetComponent<ScriptDatosElemenItf>().listaDeHijos != null)
+
 
 
         // ///////////////////////////////////////////
@@ -289,6 +293,18 @@ public class SctExpandirEvi : MonoBehaviour {
                 { Debug.Log(" En SctExpandirEvi => botonExpandeEvi(), per el else sin condicion, Desde el evi : " + transform.name + " - con SubTipoElementIntf : " + transform.GetComponent<ScriptDatosElemenItf>().dameSubTipoElementIntf()); }
 
             }  // Fin de - else (sin condiciones)
+
+
+            // Nicolas
+            // Meter en un metodo
+            Debug.Log("btn Expandir EVI \n" +
+                "añadir a las migas de pan");
+            // Genera un EVI de referencia del EVI X en el contenedor de las migas de pan 
+            this.ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen
+            (
+                this.ramaAsociada.GetComponent<ScreiptCtrlEviTipo_Rama_00>().EviBase,
+                this.ctrlInterfaz.GetComponent<ScriptCtrlMuroUsuario>().Contenedor_BreadcrumbsTrails
+            );
 
         }  // Fin de - else - de - if (ramaAsociada != null)
 
