@@ -20,7 +20,7 @@ public class ScriptCtrlMuroUsuario : MonoBehaviour {
 	public GameObject Usuario;
 
 	// Nicolas Merino Ramirez
-	public GameObject Contenedor_BreadcrumbsTrails;
+	//public GameObject Contenedor_BreadcrumbsTrails;
 
 	void Start ()
 	{
@@ -174,7 +174,7 @@ public class ScriptCtrlMuroUsuario : MonoBehaviour {
 		//	Funcion	Instanciar el contenedor de evis muro de las migas de pan
 		//			Para que aparezca es NECESARIO vincularlo en el prefab "ctrlInterfaz" desde el inspector
 
-		this.Contenedor_BreadcrumbsTrails = Instantiate(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Contenedor_BreadcrumbsTrails);
+		GameObject Contenedor_BreadcrumbsTrails = this.ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Contenedor_BreadcrumbsTrails;
 		Contenedor_BreadcrumbsTrails.transform.SetParent(this.transform);
 		//Contenedor_BreadcrumbsTrails.transform.SetParent(BtnBreadcrumbsTrails.transform);
 		Contenedor_BreadcrumbsTrails.transform.localPosition = new Vector3(-0.361000001f, -0.39199999f, -15f);

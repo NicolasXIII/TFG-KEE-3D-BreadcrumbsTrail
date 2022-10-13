@@ -309,7 +309,7 @@ public class SctExpandirEvi : MonoBehaviour {
             
             Debug.Log("1 EXPANDIR EVI INIT");
 
-            GameObject panera = Usuario.gameObject.GetComponentInChildren<ScriptCtrlMuroUsuario>().Contenedor_BreadcrumbsTrails;
+            GameObject panera = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Contenedor_BreadcrumbsTrails;
 
             this.ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen
             (

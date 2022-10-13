@@ -628,6 +628,8 @@ public class ScriptLibGestorEvis : MonoBehaviour {
     }  // Fin de - public void expandeDescripcion(GameObject elemDestino)
 
 
+
+
     /// <summary>
     /// /////////////////////////////////////////////////////////////////
     /// desarrollaFractal() - Metodo : Desarrolla los fractums del en el elemento contenedor que se solicite
@@ -1926,6 +1928,10 @@ IEnumerator esperaYponDatosDeEviBaseDeEviRefElemen(GameObject EviRefElemen, Game
 
         // Modificamos el estado para actuar en consecuencia
         ElemenRef.GetComponent<ScriptCtrlBaseDeEvi>().estadoIconoAyudaIntf = "texturaCargada";
+
+        // Nicolas Merino Ramirez
+        // Annadir a la miga de pan el elemento expandido
+        this.GetComponent<Script_Breadcrumbs_Trails>().gestionaEviRefElementoenLista(EviRefElemen);
 
     }  // Fin de - IEnumerator generaEviCompleto()
     

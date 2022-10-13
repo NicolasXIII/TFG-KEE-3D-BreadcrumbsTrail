@@ -16,7 +16,7 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
     public bool click = false;
 
     // Cambiar GameObject por Evis o Evi de muro
-    public List<GameObject> breadcrumbs;
+    public List<GameObject> List_BreadcrumbsTrails;
 
     
     
@@ -46,7 +46,8 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
         muroUsuario = GameObject.FindWithTag("MuroUsuario");
 
         // Busco el "Contenedor_BreadcrumbsTrails" del script "ScriptCtrlMuroUsuario" y lo asigno a Bt_Contenedor
-        this.Bt_Contenedor = muroUsuario.GetComponent<ScriptCtrlMuroUsuario>().Contenedor_BreadcrumbsTrails;
+        this.Bt_Contenedor = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Contenedor_BreadcrumbsTrails;
+        this.List_BreadcrumbsTrails = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().List_BreadcrumbsTrails;
 
     } // Fin de - void Start()
 
@@ -139,18 +140,21 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
     // Descripcion
     //      Annadir elementos al vector de migas de pan, y en caso de que el elemento ya este
     //      dentro del vector, se eliminan todos los que estan detras del elemento introducido
-    public void annadir_Evi_BreadcrumbsTrail(GameObject evi)
+    public void gestionaEviRefElementoenLista(GameObject evi)
     {
         // Si las migas de pan NO contienen el nuevo elemento, se annade
-        if (!this.breadcrumbs.Contains(evi))
+        if (!this.List_BreadcrumbsTrails.Contains(evi))
         {
-            this.breadcrumbs.Add(evi);
+            this.List_BreadcrumbsTrails.Add(evi);
         } 
         else // en caso contrario elimino todos los elementos detras del nuevo evi
         {
-            int posicion_evi = this.breadcrumbs.IndexOf(evi);
-            this.breadcrumbs.RemoveRange( posicion_evi + 1, this.breadcrumbs.Count - (posicion_evi + 1));
+            int posicion_evi = this.List_BreadcrumbsTrails.IndexOf(evi);
+            this.List_BreadcrumbsTrails.RemoveRange( posicion_evi + 1, this.List_BreadcrumbsTrails.Count - (posicion_evi + 1));
         }
+
+        // A hijo
+        evi.transform.SetParent(this.Bt_Contenedor.transform);
 
     } // Fin de - public void annadir_Evi_BreadcrumbsTrail(GameObject evi)
 
