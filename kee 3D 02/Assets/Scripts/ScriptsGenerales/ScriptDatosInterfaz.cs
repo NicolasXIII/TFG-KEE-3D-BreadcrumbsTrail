@@ -253,6 +253,9 @@ public class ScriptDatosInterfaz : MonoBehaviour {
     private int ultimoIdElementTelones;
     public int numTelones;  // Sirve entre otras cosas para nombrarlos de forma univoca e identificarlos en desarrollo
 
+    //Nicolas
+    public List<GameObject> breadcrumbs;
+
     // //////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////////////////////////////////
     /// Para las SOLICITUDES
@@ -612,7 +615,7 @@ public class ScriptDatosInterfaz : MonoBehaviour {
     
     // Autor Nicolas Merino Ramirez
     public GameObject BtnMenu_N2_1_Herramientas_breadcrumbsTrails;
-    public GameObject Contenedor_BreadcrumbsTrails_SDI;
+    public GameObject Contenedor_BreadcrumbsTrails;
 
     // //////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////////////////////////////////

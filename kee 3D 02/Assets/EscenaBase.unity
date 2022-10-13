@@ -1816,6 +1816,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1557542509203336, guid: a2ff386a0636c10418911e1853d4ffe6, type: 3}
     - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
+      propertyPath: Contenedor_BreadcrumbsTrails
+      value: 
+      objectReference: {fileID: 7048343519875994192, guid: eacca83e336a9eb4485e4648be70617a, type: 3}
+    - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
       propertyPath: MaterialBtnDesplazarSinTecho
       value: 
       objectReference: {fileID: 2100000, guid: 36216bc27ac77994192874620a974d03, type: 2}
