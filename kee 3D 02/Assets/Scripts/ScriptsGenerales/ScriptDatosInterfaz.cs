@@ -1582,16 +1582,21 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         posicion_BtnMenu_N2_Herramientas = new Vector3(((1f / 2f) - (escala_x_BtnMenu_N1_General) - (escala_x_BtnMenu_N1_General) * (NumBtn_BtnMenu_N1_1_Gereral_Herramientas / 2f)), -(1f / 2f) + escala_y_BtnMenu_N1_General / 2f, 0f);
         escala_BtnMenu_N2_Herramientas = new Vector3(escalaGeneral_N_1_x * NumBtn_BtnMenu_N1_1_Gereral_Herramientas, escalaGeneral_N_1_y, 1f);
 
+        // Nicolas Merino Ramirez
+        // Fecha 13/10/2022
+        // Sumo ".12f" en las posiciones de los subbotones del boton de herramientas para cuadrar los subbotones
+        // y que no se salgan de su rectangulo contenedor
+
         // Para eol boton de acceso al evi de busqueda "BtnMenu_N2_1_Herramientas_buscador"
-        posicion_BtnMenu_N2_1_Herramientas_buscador = new Vector3(1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas, 0f, 0f);
+        posicion_BtnMenu_N2_1_Herramientas_buscador = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas) +.12f, 0f, 0f);
         escala_BtnMenu_N2_1_Herramientas_buscador = new Vector3(((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), factorReduccion01, 1f);
         escala_BtnMenu_N2_1_Herramientas_buscador_Activado = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 1f, 1f);
         // Para eol boton de acceso a la mochila "BtnMenu_N2_1_Herramientas_mochila"
-        posicion_BtnMenu_N2_1_Herramientas_mochila = new Vector3(0f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas, 0f, 0f);
+        posicion_BtnMenu_N2_1_Herramientas_mochila = new Vector3((0f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas) + .12f, 0f, 0f);
         escala_BtnMenu_N2_1_Herramientas_mochila = new Vector3(((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), factorReduccion01, 1f);
         escala_BtnMenu_N2_1_Herramientas_mochila_Activado = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 1f, 1f);
         // Para eol boton de acceso a herramientas "BtnMenu_N2_1_CtrlInterfaz_audio"
-        posicion_BtnMenu_N2_1_Herramientas_agentes = new Vector3(-1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas, 0f, 0f);
+        posicion_BtnMenu_N2_1_Herramientas_agentes = new Vector3((-1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas) + .12f, 0f, 0f);
         escala_BtnMenu_N2_1_Herramientas_agentes = new Vector3(((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), factorReduccion01, 1f);
         escala_BtnMenu_N2_1_Herramientas_agentes_Activado = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 1f, 1f);
         
@@ -1606,7 +1611,7 @@ public class ScriptDatosInterfaz : MonoBehaviour {
 
         this.posicion_BtnBreadcrumbsTrails = new Vector3
             (
-                -2f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas,
+                (-2f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas) + .12f,
                 0f,
                 0f
             );
