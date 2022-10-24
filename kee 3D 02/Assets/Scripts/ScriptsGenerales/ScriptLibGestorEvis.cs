@@ -605,8 +605,6 @@ public class ScriptLibGestorEvis : MonoBehaviour {
         EviRefElemen.GetComponent<SctCtrlEviRefElemen>().idElementEnTipo_elemenRef    = ElemenRef.GetComponent<ScriptDatosElemenItf>().dameIdElementEnTipo();    // Indicamos que contiene una referencia
         EviRefElemen.GetComponent<SctCtrlEviRefElemen>().subTipoElementIntf_elemenRef = ElemenRef.GetComponent<ScriptDatosElemenItf>().dameSubTipoElementIntf(); // Indicamos que contiene una referencia
 
-        Debug.Log("2 generaEviRefElemen");
-
         // Para poner los datos del evi base, hay que esperar a que este exista, por lo que hay que hacerlo mediante una corrutina
         StartCoroutine(esperaYponDatosDeEviBaseDeEviRefElemen(EviRefElemen, ElemenRef, elemDestino));
 
@@ -626,8 +624,6 @@ public class ScriptLibGestorEvis : MonoBehaviour {
         // Del resto de la carga ya se encarga el evi fractal
 
     }  // Fin de - public void expandeDescripcion(GameObject elemDestino)
-
-
 
 
     /// <summary>
@@ -1762,9 +1758,6 @@ public void gestionaInfoCanvas(GameObject eviBase)
     /// </summary>
 IEnumerator esperaYponDatosDeEviBaseDeEviRefElemen(GameObject EviRefElemen, GameObject ElemenRef, GameObject ObjetoPadre)
     {
-
-        Debug.Log("3 esperaYponDatosDeEviBaseDeEviRefElemen");
-
         yield return null; // Esperamos un cuadro a que el evi base este listo
 
         yield return null; // Esperamos un cuadro a que el evi base este listo
@@ -1928,10 +1921,6 @@ IEnumerator esperaYponDatosDeEviBaseDeEviRefElemen(GameObject EviRefElemen, Game
 
         // Modificamos el estado para actuar en consecuencia
         ElemenRef.GetComponent<ScriptCtrlBaseDeEvi>().estadoIconoAyudaIntf = "texturaCargada";
-
-        // Nicolas Merino Ramirez
-        // Annadir a la miga de pan el elemento expandido
-        this.GetComponent<Script_Breadcrumbs_Trails>().gestionaEviRefElementoenLista(EviRefElemen);
 
     }  // Fin de - IEnumerator generaEviCompleto()
     

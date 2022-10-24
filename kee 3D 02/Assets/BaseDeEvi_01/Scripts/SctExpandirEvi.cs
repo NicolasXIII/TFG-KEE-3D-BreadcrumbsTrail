@@ -304,21 +304,16 @@ public class SctExpandirEvi : MonoBehaviour {
             // Nicolas Merino Ramirez
             // Meter en un metodo
             // Descripcion
-            //      Genera un EVI de referencia del EVI X en el contenedor de las migas de pan 
-            Debug.Log("Crear referencia EVI en Contenedor_BreadcrumbsTrails \n");
-            
-            Debug.Log("1 EXPANDIR EVI INIT");
-
-            GameObject panera = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Contenedor_BreadcrumbsTrails;
+            //      Genera un EVI de referencia del EVI X en el contenedor de las migas de pan             
+            GameObject Bt_Contenedor = GameObject.FindGameObjectsWithTag("BT_Contenedor")[0];
+            Debug.Log("EXPANDE EVI " + Bt_Contenedor);
 
             this.ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen
             (
                 this.transform.gameObject,
                 //this.BT_Contenedor
-                panera
+                Bt_Contenedor
             );
-
-            Debug.Log(" 9999 EXPANDIR EVI FIN");
 
         }  // Fin de - else - de - if (ramaAsociada != null)
 

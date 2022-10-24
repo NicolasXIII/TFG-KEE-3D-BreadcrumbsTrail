@@ -110,8 +110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ctrlInterfaz: {fileID: 0}
   usuario: {fileID: 0}
+  muroUsuario: {fileID: 0}
+  Bt_Contenedor: {fileID: 7048343519875994192, guid: eacca83e336a9eb4485e4648be70617a, type: 3}
   bt_Estado: 0
   bt_btn_Estado: 0
   click: 0
   breadcrumbs: []
-  Bt_Contenedor: {fileID: 7048343519875994192, guid: eacca83e336a9eb4485e4648be70617a, type: 3}

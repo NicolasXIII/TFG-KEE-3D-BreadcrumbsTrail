@@ -21,6 +21,7 @@ public class ScriptCtrlMuroUsuario : MonoBehaviour {
 
 	// Nicolas Merino Ramirez
 	//public GameObject Contenedor_BreadcrumbsTrails;
+	//public GameObject BT_contenedor2;
 
 	void Start ()
 	{
@@ -169,20 +170,48 @@ public class ScriptCtrlMuroUsuario : MonoBehaviour {
 		BtnBreadcrumbsTrails.transform.localScale	 = this.ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().escala_BtnBreadcrumbsTrails;
 		BtnBreadcrumbsTrails.transform.localRotation = this.ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().rotacion_BtnBreadcrumbsTrails;
 
-
+		/*
 		//	Autor	Nicolas Merino Ramirez
 		//	Funcion	Instanciar el contenedor de evis muro de las migas de pan
 		//			Para que aparezca es NECESARIO vincularlo en el prefab "ctrlInterfaz" desde el inspector
-
-		GameObject Contenedor_BreadcrumbsTrails = this.ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Contenedor_BreadcrumbsTrails;
+		
+		this.Contenedor_BreadcrumbsTrails = Instantiate(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Contenedor_BreadcrumbsTrails);
 		Contenedor_BreadcrumbsTrails.transform.SetParent(this.transform);
 		//Contenedor_BreadcrumbsTrails.transform.SetParent(BtnBreadcrumbsTrails.transform);
 		Contenedor_BreadcrumbsTrails.transform.localPosition = new Vector3(-0.361000001f, -0.39199999f, -15f);
 		Contenedor_BreadcrumbsTrails.transform.localScale    = new Vector3(0.206234068f, 0.0904989168f, 0.100000001f);
 		Contenedor_BreadcrumbsTrails.SetActive(false);
+		*/
+		/*
+		GameObject Bt_Contenedor = Instantiate(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Contenedor_BreadcrumbsTrails);
+		//GameObject Bt_Contenedor = Contenedor_BreadcrumbsTrails_Instanciacion;
+		//Bt_Contenedor.tag = "BT_Contenedor";
+		Bt_Contenedor.transform.SetParent(this.transform);
+		Bt_Contenedor.transform.localPosition = new Vector3(-0.361000001f, -0.39199999f, -20f);
+		Bt_Contenedor.transform.localScale = new Vector3(0.206234068f, 0.0904989168f, 0.100000001f);
+		Bt_Contenedor.SetActive(false);
+
+		StartCoroutine(esperar());	
+		*/
 
 	} // FIn de - void Start ()
+	/*
+	IEnumerator esperar()
+    {
+		yield return null;
+		yield return null;
+		yield return null;
 
+		Debug.Log("usu "+ Usuario);
+
+		// Problema da 0
+		Debug.Log("Resultado de FindGameObjectsWithTag " + GameObject.FindGameObjectsWithTag("BT_Contenedor").Length);
+		//Debug.Log("Resultado de FindGameObjectsWithTag " + GameObject.FindWithTag("BT_Contenedor").transform.localPosition);
+
+		BT_contenedor2 = GameObject.FindWithTag("BT_Contenedor");
+		Debug.Log("prueba 2" + BT_contenedor2 == null);
+	}
+	*/
 	void LateUpdate ()
 	{
         // Colocamos el muro de usuario a la distancia adecuada, para que aparezca de forma adecuada en el monitor

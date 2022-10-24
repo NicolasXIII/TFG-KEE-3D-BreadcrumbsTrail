@@ -8,7 +8,7 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
     public GameObject ctrlInterfaz;
     public GameObject usuario;
     public GameObject muroUsuario;
-    public GameObject Bt_Contenedor;
+    public GameObject Contenedor_BreadcrumbsTrails;
 
     // Estado de las migas de pan
     public bool bt_Estado = false;
@@ -44,11 +44,16 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
         ctrlInterfaz = GameObject.FindWithTag("ctrlInterfaz");
         usuario = GameObject.FindWithTag("Usuario");
         muroUsuario = GameObject.FindWithTag("MuroUsuario");
+        GameObject muroUsu = GameObject.Find("MuroUsuario");
 
-        // Busco el "Contenedor_BreadcrumbsTrails" del script "ScriptCtrlMuroUsuario" y lo asigno a Bt_Contenedor
-        this.Bt_Contenedor = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Contenedor_BreadcrumbsTrails;
-        this.List_BreadcrumbsTrails = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().List_BreadcrumbsTrails;
+        this.Contenedor_BreadcrumbsTrails = Instantiate(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Contenedor_BreadcrumbsTrails);
+        this.Contenedor_BreadcrumbsTrails.transform.SetParent(muroUsuario.transform);
+        this.Contenedor_BreadcrumbsTrails.transform.localPosition = new Vector3(-0.361000001f, -0.39199999f, -15f);
+        this.Contenedor_BreadcrumbsTrails.transform.localScale = new Vector3(0.206234068f, 0.0904989168f, 0.100000001f);
+        this.Contenedor_BreadcrumbsTrails.SetActive(false);
 
+        //this.Bt_Contenedor = GetComponent<ScriptCtrlMuroUsuario>().Contenedor_BreadcrumbsTrails;
+        //Debug.Log("Resultado de FindGameObjectsWithTag " + GetComponent<ScriptCtrlMuroUsuario>().Contenedor_BreadcrumbsTrails + FindGameObjectsWithTag("BT_Contenedor").Length);
     } // Fin de - void Start()
 
 
@@ -63,10 +68,6 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
             click = true;
         }
     }
-
-
-    
-
 
     // ***************************************************************************************
     // ******************************            HOVER          ******************************
@@ -96,7 +97,6 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
             this.transform.localScale = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().escala_BtnBreadcrumbsTrails;
             this.bt_btn_Estado = false;
         }
-        
 
     } // Fin de - void OnTriggerEnter(Collider other) 
 
@@ -112,6 +112,9 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
 
         Debug.Log("Trigger = " + this.bt_btn_Estado + "\n" +
             "Migas de pan = " + this.bt_Estado);
+
+        // Busco el "Contenedor_BreadcrumbsTrails" del script "ScriptCtrlMuroUsuario" y lo asigno a Bt_Contenedor
+        //Bt_Contenedor = GetComponentIn<ScriptCtrlMuroUsuario>(). FindWithTag("BT_Contenedor");
 
         this.click = false;
 
@@ -129,7 +132,7 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
     {
         this.bt_Estado = !this.bt_Estado;
 
-        this.Bt_Contenedor.SetActive(this.bt_Estado);
+        this.Contenedor_BreadcrumbsTrails.SetActive(this.bt_Estado);
         //muroUsuario.GetComponent<ScriptCtrlMuroUsuario>().Contenedor_BreadcrumbsTrails.SetActive(this.bt_Estado);
     }
 
@@ -140,7 +143,7 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
     // Descripcion
     //      Annadir elementos al vector de migas de pan, y en caso de que el elemento ya este
     //      dentro del vector, se eliminan todos los que estan detras del elemento introducido
-    public void gestionaEviRefElementoenLista(GameObject evi)
+    public void annadir_Evi_BreadcrumbsTrail(GameObject evi)
     {
         // Si las migas de pan NO contienen el nuevo elemento, se annade
         if (!this.List_BreadcrumbsTrails.Contains(evi))
@@ -153,9 +156,24 @@ public class Script_Breadcrumbs_Trails : MonoBehaviour
             this.List_BreadcrumbsTrails.RemoveRange( posicion_evi + 1, this.List_BreadcrumbsTrails.Count - (posicion_evi + 1));
         }
 
-        // A hijo
-        evi.transform.SetParent(this.Bt_Contenedor.transform);
+        // Ahijo la miga de pan a la panera
+        evi.transform.SetParent(this.Contenedor_BreadcrumbsTrails.transform);
+
+        this.redimensionar(evi);
 
     } // Fin de - public void annadir_Evi_BreadcrumbsTrail(GameObject evi)
 
+    void redimensionar(GameObject evi)
+    {
+        // pongo a los elementos de la panera, la escala de los botones de herramientas,...
+        evi.transform.localScale = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().escala_BtnBreadcrumbsTrails;
+
+        // pongo el evi en la panera, pero en el eje x lo muevo ".12f" para crear una separacion
+        evi.transform.localPosition = new Vector3
+        (
+            this.List_BreadcrumbsTrails.Count + .12f,
+            this.Contenedor_BreadcrumbsTrails.transform.position.y,
+            this.Contenedor_BreadcrumbsTrails.transform.position.z
+        );
+    }
 }
