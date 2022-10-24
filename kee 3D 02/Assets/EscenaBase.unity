@@ -1532,6 +1532,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5962618308334982133, guid: fee44285361436744967b96abb004fb7, type: 3}
     - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
+      propertyPath: panera
+      value: 
+      objectReference: {fileID: 8858766989428621575, guid: ba5452d2a29b66e47b1fd46b8be831f9, type: 3}
+    - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
       propertyPath: Focoluz
       value: 
       objectReference: {fileID: 291330194}
@@ -1712,10 +1716,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 26c26f1a5880cdc4995f3e7ec38cc410, type: 3}
     - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
-      propertyPath: BtnBreadcrumbsTrails
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
       propertyPath: MaterialBtnDesplazar
       value: 
       objectReference: {fileID: 2100000, guid: 129b9691b8afa6e4ca51d1e8fddf7ae9, type: 2}
@@ -1739,10 +1739,6 @@ PrefabInstance:
       propertyPath: MaterialBtnInstanciar
       value: 
       objectReference: {fileID: 2100000, guid: 5e0015442afde9446b1f5c37bd28ad2b, type: 2}
-    - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
-      propertyPath: Btn_Breadcrumbs_Trails
-      value: 
-      objectReference: {fileID: 7430904067732260883, guid: 93ffaa9b904fc36409dff742c647e9b4, type: 3}
     - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
       propertyPath: material_fondoSinTecho
       value: 
@@ -1816,10 +1812,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1557542509203336, guid: a2ff386a0636c10418911e1853d4ffe6, type: 3}
     - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
-      propertyPath: Contenedor_BreadcrumbsTrails
-      value: 
-      objectReference: {fileID: 7048343519875994192, guid: eacca83e336a9eb4485e4648be70617a, type: 3}
-    - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
       propertyPath: MaterialBtnDesplazarSinTecho
       value: 
       objectReference: {fileID: 2100000, guid: 36216bc27ac77994192874620a974d03, type: 2}
@@ -1888,10 +1880,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1229358412374372, guid: ef4da0a93d5129c4f87ee6598f3360b5, type: 3}
     - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
-      propertyPath: Contenedor_BreadcrumbsTrails_SDI
-      value: 
-      objectReference: {fileID: 7048343519875994192, guid: eacca83e336a9eb4485e4648be70617a, type: 3}
-    - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
       propertyPath: BtnMenu_N1_1_Gereral_CtrlInterfaz
       value: 
       objectReference: {fileID: 1735799823989876, guid: 352588be5797d7f4e8a75e678292b12d, type: 3}
@@ -1903,6 +1891,10 @@ PrefabInstance:
       propertyPath: BtnMenu_N2_1_CtrlInterfaz_idiomas
       value: 
       objectReference: {fileID: 1586752690493190, guid: 5be9ab8e5442e6e4f8c8263c8238d353, type: 3}
+    - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
+      propertyPath: BtnMenu_N2_1_Herramientas_MigaPan
+      value: 
+      objectReference: {fileID: 3232938649500062237, guid: 7ffbc978596cdc3459977479a5e906a5, type: 3}
     - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
       propertyPath: BtnMenu_N2_1_Herramientas_agentes
       value: 
@@ -1919,10 +1911,6 @@ PrefabInstance:
       propertyPath: BtnMenu_N2_1_CtrlInterfaz_complejidad
       value: 
       objectReference: {fileID: 1823228352598618, guid: c5d545b0e3b74814eaeeaafb7e3fefd6, type: 3}
-    - target: {fileID: 114494174796192520, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
-      propertyPath: BtnMenu_N2_1_Herramientas_breadcrumbsTrails
-      value: 
-      objectReference: {fileID: 7430904067732260883, guid: 93ffaa9b904fc36409dff742c647e9b4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbb86ce982c19fd43b3095ea04b87ce0, type: 3}
 --- !u!1 &1877735786 stripped

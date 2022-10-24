@@ -1,8 +1,9 @@
-﻿  using System;
+﻿// 3 Incrustaciones de codigo "Nicolas Merino Ramirez"
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using System.Xml;
 using System.Xml.Serialization;
 using System.Xml.Schema;
@@ -16,21 +17,6 @@ using UnityEngine.UI;
 
 public class ScriptDatosInterfaz : MonoBehaviour {
 
-
-    // Nicolas
-    
-    public GameObject BtnBreadcrumbsTrails;
-    
-    //public GameObject BtnBreadcrumbsTrails;
-    public Vector3 posicion_BtnBreadcrumbsTrails;
-    public Vector3 escala_BtnBreadcrumbsTrails;
-    public Vector3 escala_BtnBreadcrumbsTrails_Activado;
-    public Quaternion rotacion_BtnBreadcrumbsTrails;
-    /*
-    public GameObject BtnBreadcrumbsTrails_Contenedor;
-    public Vector3 posicion_BtnBreadcrumbs_N2_Contenedor;
-    public Vector3 escala_BtnBreadcrumbs_N2_Contenedor;
-    */
 
     /// ////////////////////////////////////////////////
     /// Datos de Este KEE
@@ -252,9 +238,6 @@ public class ScriptDatosInterfaz : MonoBehaviour {
     public List<GameObject> ListaTelones;
     private int ultimoIdElementTelones;
     public int numTelones;  // Sirve entre otras cosas para nombrarlos de forma univoca e identificarlos en desarrollo
-
-    //Nicolas
-    public List<GameObject> breadcrumbs;
 
     // //////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////////////////////////////////
@@ -586,6 +569,13 @@ public class ScriptDatosInterfaz : MonoBehaviour {
     public Vector3 escala_BtnMenu_N2_1_Herramientas_agentes;
     public Vector3 escala_BtnMenu_N2_1_Herramientas_agentes_Activado;
 
+    // Nicolas Merino Ramirez
+    public Vector3 posicion_BtnMenu_N2_1_Herramientas_MigaPan;
+    public Vector3 escala_BtnMenu_N2_1_Herramientas_MigaPan;
+    public Vector3 escala_BtnMenu_N2_1_Herramientas_MigaPan_Activado;
+    public Quaternion rotacion_BtnMenu_N2_1_Herramientas_MigaPan;
+    public GameObject panera;
+
     // Nivel 3 de botones (HIJOS DE herramientas)
     // Botones del menu principal
     public GameObject BtnMenu_N1_General;
@@ -612,10 +602,8 @@ public class ScriptDatosInterfaz : MonoBehaviour {
     public GameObject BtnMenu_N2_1_Herramientas_buscador;
     public GameObject BtnMenu_N2_1_Herramientas_mochila;
     public GameObject BtnMenu_N2_1_Herramientas_agentes;
-    
-    // Autor Nicolas Merino Ramirez
-    public GameObject BtnMenu_N2_1_Herramientas_breadcrumbsTrails;
-    public GameObject Contenedor_BreadcrumbsTrails;
+    // Nicolas Merino Ramirez
+    public GameObject BtnMenu_N2_1_Herramientas_MigaPan;
 
     // //////////////////////////////////////////////////////////////////////////
     // //////////////////////////////////////////////////////////////////////////
@@ -1279,8 +1267,7 @@ public class ScriptDatosInterfaz : MonoBehaviour {
     /// </summary>
 
 
-    void calculaInterfaz()
-    {
+    void calculaInterfaz() {
         // Calculamos el tamaño de la interfaz dependiendo de "ancho_x_Pantalla" y "alto_y_Pantalla"
 
         /// pixels_x_Pantalla
@@ -1300,15 +1287,15 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         // Parametros generales que parametrizan las distancias que se definen a continuacion
         // ancho_x_Pantalla;  EsPara tener una referencia comun a todos
         // Para el entorno del usuario (donde estan muro de usuario, Tramoya, camara, luz y sus punteros) Pudrá viajar, crecer y decrecer y moverse por el arbol
-        // ojo-2021-12-28       factorEscalaEntornoUsuario = ancho_x_Pantalla * 0.15f;  // Este parametro sirve para ajustar la escala de los elementos que van con el usuario
+// ojo-2021-12-28       factorEscalaEntornoUsuario = ancho_x_Pantalla * 0.15f;  // Este parametro sirve para ajustar la escala de los elementos que van con el usuario
         factorEscalaEntornoUsuario = ancho_x_Pantalla;  // Este parametro sirve para ajustar la escala de los elementos que van con el usuario
         escalaEntornoUsuario = factorEscalaEntornoUsuario; // El resto de las escalas, se va relacionando con esta
-        escala_geneal_BtnMenu_MuroUsuario = (dimensionRefBaseEnEscala / ancho_x_Pantalla) * 1f / 6f; // Define el tamaño de los botones del men del muro de usuario. Junto con "factorGeneralTamañoObgetos
-                                                                                                     // Se ajusta al tamaño menor entre el alto y el ancho de la pantalla
-                                                                                                     // Para el muro de trabajo (junto con las ramas van configurando una estructura por la que viaja el usuario generando y explorando su contenido
+        escala_geneal_BtnMenu_MuroUsuario = (dimensionRefBaseEnEscala/ ancho_x_Pantalla) * 1f / 6f; // Define el tamaño de los botones del men del muro de usuario. Junto con "factorGeneralTamañoObgetos
+                                                                                                    // Se ajusta al tamaño menor entre el alto y el ancho de la pantalla
+            // Para el muro de trabajo (junto con las ramas van configurando una estructura por la que viaja el usuario generando y explorando su contenido
         factorEscalaMuroTrabajo = 1f;  //  10, tamaño 10x10=100  OJOO. Los muros son planos, y los planos se componen de 10x10 baldosas, la escala lo es de una baldosa, luego el tamaño del plano es factorEscalaMuroTrabajo x 10
         escalaGeneralMuroTrabajo = ancho_x_Pantalla * factorEscalaMuroTrabajo;
-        factorEscalaBaseDeEvi = factorGeneralTamañoObgetos * (dimensionRefBaseEnEscala / ancho_x_Pantalla) * (1f / 7f);  //  Los muros ya no son planos, si no cubos (2021-07-08).10, tamaño 10x10=100  OJOO. Los muros son planos, y los planos se componen de 10x10 baldosas, la escala lo es de una baldosa, luego el tamaño del plano es factorEscalaMuroTrabajo x 10
+        factorEscalaBaseDeEvi =  factorGeneralTamañoObgetos * (dimensionRefBaseEnEscala / ancho_x_Pantalla) * (1f /7f);  //  Los muros ya no son planos, si no cubos (2021-07-08).10, tamaño 10x10=100  OJOO. Los muros son planos, y los planos se componen de 10x10 baldosas, la escala lo es de una baldosa, luego el tamaño del plano es factorEscalaMuroTrabajo x 10
 
         // Para la tramoya
         ratioOcupacionTramoya = 1f / 4f;  // La tramoya ocupara un cuarto de la parte alta de la pantalla
@@ -1330,8 +1317,8 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         distancia_z_LuzUsuario = -(escalaEntornoUsuario / 5f);  // distancia_z_LuzUsuario. La ponemos lo mas cerca del muro de trabajo para que nada haga sombras
         // 7. distancia_z_CamaraUsuario
         distancia_z_CamaraUsuario = -(escalaEntornoUsuario * 2f / 3f); //  -10 distancia_z_CamaraUsuario, va por detras del usuario
-                                                                       // 8.  distanciaEntreMuros 
-                                                                       //        distanciaEntreMuros = escalaEntornoUsuario * 10f;  // 150 distanciaEntreMuros. Esta se modificara para cada tramo de rama dependiendo del crecimiento del arbol
+        // 8.  distanciaEntreMuros 
+//        distanciaEntreMuros = escalaEntornoUsuario * 10f;  // 150 distanciaEntreMuros. Esta se modificara para cada tramo de rama dependiendo del crecimiento del arbol
         distanciaEntreMuros = escalaEntornoUsuario * 5f;  // 150 distanciaEntreMuros. Esta se modificara para cada tramo de rama dependiendo del crecimiento del arbol
 
         // ///////////////////////////////////////////
@@ -1390,8 +1377,8 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         posicion_z_PunteroUsuario = distancia_z_PunteroUsuario;
         posicionPunteroUsuario = new Vector3(posicion_x_PunteroUsuario, posicion_y_PunteroUsuario, posicion_z_PunteroUsuario);
         //  Movimiento de usuario
-        //        escala_x_PunteroUsuario = 2f;
-        //        escala_y_PunteroUsuario = 2f;
+//        escala_x_PunteroUsuario = 2f;
+//        escala_y_PunteroUsuario = 2f;
         escala_x_PunteroUsuario = 1f;
         escala_y_PunteroUsuario = 1f;
         escala_z_PunteroUsuario = 1f;
@@ -1412,7 +1399,7 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         escala_z_PuntMuroUsuario = 0.1f;  // De grande igualico que su padre (puntero de usuario)
         escalaPuntMuroUsuario = new Vector3(escala_x_PuntMuroUsuario, escala_y_PuntMuroUsuario, escala_z_PuntMuroUsuario);
 
-        // ///////////////////////
+         // ///////////////////////
         // Parametros operativos
         cercaDeUsuario = 10f;  // nos sirve para activar o desactivar cosas (muros, etc...) para considerar cuando el usuario esta proximo
         usuarioEnMuro = distanciaEntreMuros / cercaDeUsuario; // es el margen delante y detras del muro en el que se considera que el usuario esta en el muro
@@ -1433,8 +1420,8 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         escala_z_Tramoya = 1f / 10f; // No sde muy bien porque lo tengo que hacer mas estrecho, pero si no sale muy grueso
         escalaTramoya = new Vector3(escala_x_Tramoya, escala_y_Tramoya, escala_z_Tramoya);
         // La posicion de la tramoya
-        //        positionTramoya = new Vector3(0.0f, ratioOcupacionTramoya, distancia_z_Tramoya); // A la distancia correspondiente del usuario y ocupando la parte superior de la pantalla
-        positionTramoya = new Vector3(0.0f, ((escalaGeneralTramoya / ratio_dimensiones_Pantalla) / 2f) * (1f - ratioOcupacionTramoya), distancia_z_Tramoya); // A la distancia correspondiente del usuario y ocupando la parte superior de la pantalla
+//        positionTramoya = new Vector3(0.0f, ratioOcupacionTramoya, distancia_z_Tramoya); // A la distancia correspondiente del usuario y ocupando la parte superior de la pantalla
+        positionTramoya = new Vector3(0.0f, ((escalaGeneralTramoya / ratio_dimensiones_Pantalla)/2f) * (1f - ratioOcupacionTramoya), distancia_z_Tramoya); // A la distancia correspondiente del usuario y ocupando la parte superior de la pantalla
         ratioEscalaElementosTramoya = 1f / 2f;
 
         // /////////////////////////////////////////Tramoya
@@ -1452,21 +1439,21 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         giroOrientacionTelones = Quaternion.Euler(0f, 0f, 0f);
 
 
-        // /////////////////////////////////////////
-        // /////////////////////////////////////////
-        // Para el MURO DE USUARIO
-        // La distancia del muro de usuario al usuario
-        distanciaMuroUsuario = new Vector3(0.0f, 0.0f, distancia_z_MuroUsuario);
+    // /////////////////////////////////////////
+    // /////////////////////////////////////////
+    // Para el MURO DE USUARIO
+    // La distancia del muro de usuario al usuario
+    distanciaMuroUsuario = new Vector3(0.0f, 0.0f, distancia_z_MuroUsuario);
         // Las dimensiones del muro de usuario
-        escala_x_MuroUsuario = escalaGeneralMuroUsuario;
+        escala_x_MuroUsuario = escalaGeneralMuroUsuario; 
         escala_y_MuroUsuario = escalaGeneralMuroUsuario / ratio_dimensiones_Pantalla;
-        escala_z_MuroUsuario = 1f / 10f; // No sde muy bien porque lo tengo que hacer mas estrecho, pero si no sale muy grueso
+        escala_z_MuroUsuario = 1f/10f; // No sde muy bien porque lo tengo que hacer mas estrecho, pero si no sale muy grueso
         escalaMuroUsuario = new Vector3(escala_x_MuroUsuario, escala_y_MuroUsuario, escala_z_MuroUsuario);
 
         // Para la orientacion espacial
         giroOrientacionMuroUsuario = Quaternion.Euler(0f, 0f, 0f);
 
-
+        
         // ///////////////
         // Parametros de los botonesw del muro de usuario
 
@@ -1477,12 +1464,12 @@ public class ScriptDatosInterfaz : MonoBehaviour {
 
         // Para las consultas modales al usuario (SI o No) (selecciones, Tec... que se realizan bloqueando el resto de la aplicacion hast que se contesta
         // OJOO, los objetos de este tipo de consulta deben ser hijos del muro de usuario
-        // Lo escalamos a un tamaño de la mitad del muro de usuario
-        escala_x_ConsultaUsr_tipo01 = 1f / 2f;
+            // Lo escalamos a un tamaño de la mitad del muro de usuario
+        escala_x_ConsultaUsr_tipo01 = 1f/2f;
         escala_y_ConsultaUsr_tipo01 = 1f / 2f; ;
         escala_z_ConsultaUsr_tipo01 = 1f;
         escala_ConsultaUsr_tipo01 = new Vector3(escala_x_ConsultaUsr_tipo01, escala_y_ConsultaUsr_tipo01, escala_z_ConsultaUsr_tipo01); ;
-        // Lo colocamos en el centro del muo de usuario
+            // Lo colocamos en el centro del muo de usuario
         posicion_x_ConsultaUsr_tipo01 = 0f;
         posicion_y_ConsultaUsr_tipo01 = 0f;
         posicion_z_ConsultaUsr_tipo01 = 0f;
@@ -1493,9 +1480,10 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         // numeros de botones
         NumBtn_BtnMenu_N1_1_Gereral_CtrlInterfaz = 6;
         NumBtn_BtnMenu_N1_1_Gereral_Escena = 4;
-        //NumBtn_BtnMenu_N1_1_Gereral_Herramientas = 3;
-        // Nicolas
+        
+        // Nicolas Merino Ramirez
         NumBtn_BtnMenu_N1_1_Gereral_Herramientas = 4;
+        
         NumBtn_BtnMenu_N1_1_General_Salir = 0;
 
         /// ///////////////// Nivel 1 de botones Es el contenedor de los botones de CtrlInterfaz, escena y herramientas (Suelo de 4 baldosas, tres ocupadas)
@@ -1510,14 +1498,14 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         posicion_BtnMenu_N1_General = new Vector3(posicion_x_BtnMenu_N1_General, posicion_y_BtnMenu_N1_General, posicion_z_BtnMenu_N1_General);
         // Posicion de los botones de nmivel_1 _1 ( son los botones de CtrlInterfaz, escena y herramientas) 
         // Para el menu de  de menu de usuario "BtnMenu_N1_1_Gereral_CtrlInterfaz" dentro de "BtnMenu_N1_General" (Baldosa arriba derecha)
-        posicion_BtnMenu_N1_1_Gereral_CtrlInterfaz = new Vector3(1f / 4f, 1f / 4f, 0f); // el ancal aesta en el centro de la baldosa, los valores son para colocarla arriba a la derecha
-        escala_BtnMenu_N1_1_Gereral_CtrlInterfaz = new Vector3(1f / 2f, 1f / 2f, 1f);  // CUatro baldosas cubren el cuadro (la coordenada Z es del grosor de su padre (boton hijo del muro de usuario)
-                                                                                       // Para el boton fijo de menu de usuario "BtnMenu_N1_1_Gereral_Escena" dentro de "BtnMenu_N1_General" (Baldosa arriba izquierda)
-        posicion_BtnMenu_N1_1_Gereral_Escena = new Vector3(-1f / 4f, 1f / 4f, 0f); // Igual que general
-        escala_BtnMenu_N1_1_Gereral_Escena = new Vector3(1f / 2f, 1f / 2f, 1f);
+        posicion_BtnMenu_N1_1_Gereral_CtrlInterfaz = new Vector3(1f/4f, 1f/4f, 0f); // el ancal aesta en el centro de la baldosa, los valores son para colocarla arriba a la derecha
+        escala_BtnMenu_N1_1_Gereral_CtrlInterfaz = new Vector3(1f/2f, 1f/2f, 1f);  // CUatro baldosas cubren el cuadro (la coordenada Z es del grosor de su padre (boton hijo del muro de usuario)
+                                                                                     // Para el boton fijo de menu de usuario "BtnMenu_N1_1_Gereral_Escena" dentro de "BtnMenu_N1_General" (Baldosa arriba izquierda)
+        posicion_BtnMenu_N1_1_Gereral_Escena = new Vector3(-1f/4f, 1f/4f, 0f); // Igual que general
+        escala_BtnMenu_N1_1_Gereral_Escena = new Vector3(1f/2f, 1f/2f, 1f);
         // Para el boton fijo de menu de usuario dentro de "BtnMenu_N1_General" (baldosa abajo izauierda)
-        posicion_BtnMenu_N1_1_Gereral_Herramientas = new Vector3( -1f / 4f, -1f / 4f, 0f);// Igual que general
-        escala_BtnMenu_N1_1_Gereral_Herramientas = new Vector3(1f / 2f, 1f / 2f, 1f);
+        posicion_BtnMenu_N1_1_Gereral_Herramientas = new Vector3(-1f/4f, - 1f/4f, 0f);// Igual que general
+        escala_BtnMenu_N1_1_Gereral_Herramientas = new Vector3(1f/2f, 1f/2f, 1f);
         // Para el boton fijo de menu de usuario dentro de "BtnMenu_N1_General" (baldosa abajo derecha)
         posicion_BtnMenu_N1_1_General_Salir = new Vector3(1f / 4f, -1f / 4f, 0f);// Igual que general
         escala_BtnMenu_N1_1_General_Salir = new Vector3(1f / 2f, 1f / 2f, 1f);
@@ -1558,7 +1546,7 @@ public class ScriptDatosInterfaz : MonoBehaviour {
 
         // Para el boton fijo de menu de control de escena "BtnMenu_N2_Escena" dentro de "BtnMenu_N1_General"
         //		posicion_BtnMenu_N2_Escena = new Vector3 ((escalaGeneralMuroUsuario - (escala_x_BtnMenu_N1_General * 3f/2f)), 0f, (-escalaGeneralMuroUsuario + (escala_z_BtnMenu_N1_General)));
-        //        posicion_BtnMenu_N2_Escena = new Vector3(((1f / 2f) - ((3f/2f) * escala_x_BtnMenu_N1_General)), (-(1f / 2f) + ((3f / 2f) * escala_y_BtnMenu_N1_General)), 0f);
+//        posicion_BtnMenu_N2_Escena = new Vector3(((1f / 2f) - ((3f/2f) * escala_x_BtnMenu_N1_General)), (-(1f / 2f) + ((3f / 2f) * escala_y_BtnMenu_N1_General)), 0f);
         posicion_BtnMenu_N2_Escena = new Vector3(((1f / 2f) - ((2f) * escala_x_BtnMenu_N1_General)), (-(1f / 2f) + ((2f) * escala_y_BtnMenu_N1_General)), 0f);
         escala_BtnMenu_N2_Escena = new Vector3(2f * escalaGeneral_N_1_x, 2f * escalaGeneral_N_1_y, 1f);  // Va a albergar cuatro botones (un mosaico de 2x2 es igual que el boton de general)
 
@@ -1581,17 +1569,12 @@ public class ScriptDatosInterfaz : MonoBehaviour {
 
 
         // Para el boton fijo de menu de herramientas dentro de "BtnMenu_N2_Herramientas"
-        //        posicion_BtnMenu_N2_Herramientas = new Vector3(((1f / 2f) - (escala_x_BtnMenu_N1_General * 3f / 2f) - (escala_x_BtnMenu_N1_General) * (NumBtn_BtnMenu_N1_1_Gereral_Herramientas / 2f)), -(1f / 2f) + escala_y_BtnMenu_N1_General / 2f, 0f);
+//        posicion_BtnMenu_N2_Herramientas = new Vector3(((1f / 2f) - (escala_x_BtnMenu_N1_General * 3f / 2f) - (escala_x_BtnMenu_N1_General) * (NumBtn_BtnMenu_N1_1_Gereral_Herramientas / 2f)), -(1f / 2f) + escala_y_BtnMenu_N1_General / 2f, 0f);
         posicion_BtnMenu_N2_Herramientas = new Vector3(((1f / 2f) - (escala_x_BtnMenu_N1_General) - (escala_x_BtnMenu_N1_General) * (NumBtn_BtnMenu_N1_1_Gereral_Herramientas / 2f)), -(1f / 2f) + escala_y_BtnMenu_N1_General / 2f, 0f);
         escala_BtnMenu_N2_Herramientas = new Vector3(escalaGeneral_N_1_x * NumBtn_BtnMenu_N1_1_Gereral_Herramientas, escalaGeneral_N_1_y, 1f);
 
-        // Nicolas Merino Ramirez
-        // Fecha 13/10/2022
-        // Sumo ".12f" en las posiciones de los subbotones del boton de herramientas para cuadrar los subbotones
-        // y que no se salgan de su rectangulo contenedor
-
         // Para eol boton de acceso al evi de busqueda "BtnMenu_N2_1_Herramientas_buscador"
-        posicion_BtnMenu_N2_1_Herramientas_buscador = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas) +.12f, 0f, 0f);
+        posicion_BtnMenu_N2_1_Herramientas_buscador = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas) + .12f, 0f, 0f);
         escala_BtnMenu_N2_1_Herramientas_buscador = new Vector3(((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), factorReduccion01, 1f);
         escala_BtnMenu_N2_1_Herramientas_buscador_Activado = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 1f, 1f);
         // Para eol boton de acceso a la mochila "BtnMenu_N2_1_Herramientas_mochila"
@@ -1599,45 +1582,32 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         escala_BtnMenu_N2_1_Herramientas_mochila = new Vector3(((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), factorReduccion01, 1f);
         escala_BtnMenu_N2_1_Herramientas_mochila_Activado = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 1f, 1f);
         // Para eol boton de acceso a herramientas "BtnMenu_N2_1_CtrlInterfaz_audio"
+        
+        // Nicolas Merino Ramirez
         posicion_BtnMenu_N2_1_Herramientas_agentes = new Vector3((-1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas) + .12f, 0f, 0f);
         escala_BtnMenu_N2_1_Herramientas_agentes = new Vector3(((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), factorReduccion01, 1f);
         escala_BtnMenu_N2_1_Herramientas_agentes_Activado = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 1f, 1f);
-        
-        
-        // Autor Nicolas Merino Ramirez
-        // Fecha 27/06/2022
-        // Descripcion
-        //      Calculo de los datos de inicializacion para el boton del breadcrubms trail o migas de pan
-        //       - posicion
-        //       - escala
-        //       - escala de activacion (hover)
 
-        this.posicion_BtnBreadcrumbsTrails = new Vector3
+        // Nicolas Merino Ramirez
+        posicion_BtnMenu_N2_1_Herramientas_MigaPan = new Vector3
             (
                 (-2f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas) + .12f,
                 0f,
                 0f
             );
-
-        // Roto el icono de las migas de pan 180 grados (para que no este al reves)
-        this.rotacion_BtnBreadcrumbsTrails = new Quaternion(0, 180, 0, 0);
-
-        // Calculo la escala del boton
-        this.escala_BtnBreadcrumbsTrails = new Vector3
+        escala_BtnMenu_N2_1_Herramientas_MigaPan = new Vector3
             (
                 ((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas),
                 factorReduccion01,
                 1f
             );
-
-        this.escala_BtnBreadcrumbsTrails_Activado = new Vector3
+        escala_BtnMenu_N2_1_Herramientas_MigaPan_Activado = new Vector3
             (
                 (1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas),
                 1f,
                 1f
             );
-
-        
+        rotacion_BtnMenu_N2_1_Herramientas_MigaPan = new Quaternion(0, 180, 0, 0);
 
         // /////////////////////////////////////////
         // /////////////////////////////////////////
@@ -1645,8 +1615,8 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         // Calculamos el tamaño de los muros de trabajo
         escala_x_MuroTrabajo = escalaGeneralMuroTrabajo;
         escala_y_MuroTrabajo = escalaGeneralMuroTrabajo / ratio_dimensiones_Pantalla;
-        //        escala_y_MuroTrabajo = escalaGeneralMuroTrabajo;
-        escala_z_MuroTrabajo = 1f / 10f;
+//        escala_y_MuroTrabajo = escalaGeneralMuroTrabajo;
+        escala_z_MuroTrabajo = 1f/10f;
         escalaMuroTrabajo = new Vector3(escala_x_MuroTrabajo, escala_y_MuroTrabajo, escala_z_MuroTrabajo);
 
         if (DatosGlobal.niveDebug > 50)
@@ -1679,7 +1649,7 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         //    TextCanvasGeneralCompleto; definido desde el framework
         Vector3 escala_BotonCerrarPanelCanvasCompleto = new Vector3(1f, 1f, 1f);
         BotonCerrarPanelCanvasCompleto.transform.localScale = escala_BotonCerrarPanelCanvasCompleto;
-        Vector3 posicion_BotonCerrarPanelCanvasCompleto = new Vector3(-pixels_x_Pantalla / 2f, -pixels_y_Pantalla / 2f, 0f);
+        Vector3 posicion_BotonCerrarPanelCanvasCompleto = new Vector3(- pixels_x_Pantalla / 2f, -pixels_y_Pantalla / 2f, 0f);
         BotonCerrarPanelCanvasCompleto.transform.localPosition = posicion_BotonCerrarPanelCanvasCompleto;
 
 
@@ -1705,8 +1675,8 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         estaEscalaBaseDeEviEnTramoya = new Vector3(escalaLocal_x_BaseDeEviEnTramoya, escalaLocal_y_BaseDeEviEnTramoya, escalaLocal_z_BaseDeEviEnTramoya);
 
         // Parametros de evis tipo EviTipo_00
-        escalaLocal_x_EviTipo_00 = 1f / 10f;
-        escalaLocal_y_EviTipo_00 = 1f / 10F;
+        escalaLocal_x_EviTipo_00 = 1f/10f;
+        escalaLocal_y_EviTipo_00 = 1f/10F;
         escalaLocal_z_EviTipo_00 = 1f;
         estaEscalaEviTipo_00 = new Vector3(escalaLocal_x_EviTipo_00, escalaLocal_y_EviTipo_00, escalaLocal_z_EviTipo_00);
 
@@ -1722,11 +1692,12 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         razon_escalaLocal_z_ContenedorEviSinTecho = 1f;
 
 
-        // Parametros de evis tipo EviTipo_muestraGetDetails_00
+    // Parametros de evis tipo EviTipo_muestraGetDetails_00
         escalaLocal_x_EviTipo_muestraGetDetails_00 = 1f / 10f;
         escalaLocal_y_EviTipo_muestraGetDetails_00 = 1f / 10f;
         escalaLocal_z_EviTipo_muestraGetDetails_00 = 1f;
         estaEscalaEviTipo_muestraGetDetails_00 = new Vector3(escalaLocal_x_EviTipo_muestraGetDetails_00, escalaLocal_y_EviTipo_muestraGetDetails_00, escalaLocal_z_EviTipo_muestraGetDetails_00);
+
         // Parametros de evis tipo EviFractal_00
         //       escalaLocal_x_EviFractal_00 = escalaGeneralMuroTrabajo / 10;
         //       escalaLocal_y_EviFractal_00 = escalaGrosorMuroTrabajo;
@@ -1776,8 +1747,8 @@ public class ScriptDatosInterfaz : MonoBehaviour {
 
     } // Fin de - void calculaInterfaz () {
 
-
-    /// ////////////////////////////////////////////////////////////////////////////////////// 
+    
+    /// //////////////////////////////////////////////////////////////////////////////////////
     /// ///////////  Genera y entrega un identificador unico para todos los elementos de interfaz (ramas, muros, ecis, agentes, solicitudes, etc...)
     // Esta funcion envia un identificador unico (que va incrementando) cada vez que se le solicita
     // Autor : 	Miguel Angel Fernandez Graciani

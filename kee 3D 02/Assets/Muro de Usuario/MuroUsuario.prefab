@@ -110,4 +110,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ctrlInterfaz: {fileID: 0}
   Usuario: {fileID: 0}
-  Contenedor_BreadcrumbsTrails: {fileID: 7048343519875994192, guid: eacca83e336a9eb4485e4648be70617a, type: 3}

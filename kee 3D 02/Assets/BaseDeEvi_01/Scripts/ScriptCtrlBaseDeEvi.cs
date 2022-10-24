@@ -74,7 +74,7 @@ public class ScriptCtrlBaseDeEvi : MonoBehaviour {
         public static string estadoEvi_baseLista = "baseLista"; // La base del evi se ha generado por completo satisfactoriamente (ya tiene cargados sus  datos de ayuda a interfaz)
         public static string estadoEvi_operativo = "operativo"; // El evi se ha generado por completo satisfactoriamente, tanto la base como el contenedor
 
-    public string estadoImgAyudaIntf;     // identifica el estado en el que se encuentra la imagen de ayuda a interfaz del concepto
+    public string estadoImgAyudaIntf;   // identifica el estado en el que se encuentra la imagen de ayuda a interfaz del concepto
     public string estadoIconoAyudaIntf;   // identifica el estado en el que se encuentra la imagen de ayuda a interfaz del concepto
     public string estadoAudioAyudaIntf;   // identifica el estado en el que se encuentra la imagen de ayuda a interfaz del concepto
                                           // para los tres estados anteriores, las posibilidades son:
@@ -185,15 +185,15 @@ public class ScriptCtrlBaseDeEvi : MonoBehaviour {
     // Estos datos son los datos propios de la Ayuda Interfaz y otros que todos los EVIs deben tener en el mismo formato, para hacerlos
     // accesibles en cualquier caso, pero que son especificos de cada evi. Estos datos son:
 
-    public string key;                         // key: es el key del concepto (K en KDL - esta en I en KDL)
-    public string host;                        // host : es el host del concepto (H en KDL - esta en I en KDL)
-    public string cualificador;                // cualificador : indica la naturaleza del concpto (efimero,...) (Q en KDL - esta en I en KDL)
+    public string key;                            // key: es el key del concepto (K en KDL - esta en I en KDL)
+    public string host;                         // host : es el host del concepto (H en KDL - esta en I en KDL)
+    public string cualificador;                 // cualificador : indica la naturaleza del concpto (efimero,...) (Q en KDL - esta en I en KDL)
 
-    public string ordinal;                     // ordinal : es el ordinal del concepto (O en KDL - esta en F en KDL)
-    public string fechUltMod;                  // fechUltMod : es la fecha de ultima modificacion del concepto (M en KDL - esta en F en KDL)
+    public string ordinal;                         // ordinal : es el ordinal del concepto (O en KDL - esta en F en KDL)
+    public string fechUltMod;                         // fechUltMod : es la fecha de ultima modificacion del concepto (M en KDL - esta en F en KDL)
 
-    public string idioma_AyuIntf;              // idioma_AyuIntf : es el idioma de ayuda a interfaz propia del concepto  (esta en L en KDL)
-    public string imagen_AyuIntf;              // imagen_AyuIntf : es la imagen de ayuda a interfaz propia del concepto  (esta en P en KDL)
+    public string idioma_AyuIntf;               // idioma_AyuIntf : es el idioma de ayuda a interfaz propia del concepto  (esta en L en KDL)
+    public string imagen_AyuIntf;               // imagen_AyuIntf : es la imagen de ayuda a interfaz propia del concepto  (esta en P en KDL)
     public string icono_AyuIntf;               // icono_concepto : es el icono de ayuda a interfaz del concepto  (esta en P en KDL)
     public string audio_AyuIntf;               // audio_concepto : es el icono de ayuda a interfaz del concepto  (esta en P en KDL)
     public string txt_nombre_AyuIntf;          // txt_nombre_concepto : es el nombre de ayuda a interfaz del concepto  (esta en P en KDL)
@@ -201,7 +201,7 @@ public class ScriptCtrlBaseDeEvi : MonoBehaviour {
     public string txt_descripcion_AyuIntf;     // txt_descripcion_concepto : es el nombre de ayuda a interfaz del concepto  (esta en P en KDL)
 
 
-    public string enResources_ImgAyuIntf;    // Contiene el path, con nombre incluido para localizar el fichero en el directorio "Resources" de esta interfaz
+    public string enResources_ImgAyuIntf;  // Contiene el path, con nombre incluido para localizar el fichero en el directorio "Resources" de esta interfaz
     public string enResources_IconoAyuIntf;  // Contiene el path, con nombre incluido para localizar el fichero en el directorio "Resources" de esta interfaz
     public string enResources_AudioAyuIntf;  // Contiene el path, con nombre incluido para localizar el fichero en el directorio "Resources" de esta interfaz
 

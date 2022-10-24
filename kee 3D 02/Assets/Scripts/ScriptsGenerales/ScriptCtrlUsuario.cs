@@ -89,6 +89,10 @@ public class ScriptCtrlUsuario : MonoBehaviour {
 		GameObject MuroUsuario = Instantiate(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().MuroUsuario);
 		MuroUsuario.transform.SetParent(this.transform);
 
+        // Nicolas Merino Ramirez
+        GameObject panera = Instantiate(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
+        panera.transform.SetParent(this.transform);
+
         // Generamos el game objet para contener la tramoya Donde se organizaran los telones
         Tramoya = Instantiate(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Tramoya);
 //        Tramoya = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().Tramoya;

@@ -14,7 +14,6 @@ public class ScriptBtnMenu_N2_1_CtrlInterfaz_idiomas : MonoBehaviour {
         // Asignamos objetos
         ctrlInterfaz = GameObject.FindWithTag("ctrlInterfaz");
         Usuario = GameObject.FindWithTag("Usuario");
-
     } // FIn de - void Start ()
 
     void Update()

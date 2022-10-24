@@ -30,7 +30,7 @@ public class ScriptBtnMenu_N2_1_Herramientas_mochila : MonoBehaviour {
 
     void Update()
     {
-
+        
         if (enTriger)
         {
             // ///////////

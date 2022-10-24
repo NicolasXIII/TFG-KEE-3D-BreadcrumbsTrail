@@ -37,27 +37,18 @@ public class SctExpandirEvi : MonoBehaviour {
 
     public GameObject ramaAsociada;
 
-    //Nicolas Merino Ramirez
-    public GameObject BT_Contenedor;
-
     // Use this for initialization
     void Start ()
     {
-
         // Asignamos objetos
         ctrlInterfaz = GameObject.FindWithTag("ctrlInterfaz");
         Usuario = GameObject.FindWithTag("Usuario");
         CanvasGeneral = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().CanvasGeneral;
+
         //  Btn_Caja_opciones = this.transform.parent.tamañoAltoBotonActivo;
         // this.transform.localScale = this.transform.parent.GetComponent<Script_BaseDeEvi_N2_Caja_opciones>.tamañoAltoBotonActivo;
         //this.transform.localScale = this.GetComponentInParent<Script_BaseDeEvi_N2_Caja_opciones>.tamañoAltoBotonActivo;
         ramaAsociada = null;
-        //x = ctrlInterfaz.GetComponent<ScriptCtrlMuroUsuario>();
-        
-        //Nicolas Merino Ramirez
-        //this.BT_Contenedor = GameObject.Find("BT_Contenedor");
-
-
 
     }
 
@@ -114,7 +105,7 @@ public class SctExpandirEvi : MonoBehaviour {
     /// </summary>
     public void botonExpandeEvi()
     {
-        
+
         // ///////////////////////////////////////////
         // ///////////////////////////////////////////
         //   0.) Si el evi es un evi sin techo, la expansion consiste en abrir el contenido del evi segun el tipo de dato (texto, url, fichero...)
@@ -151,7 +142,6 @@ public class SctExpandirEvi : MonoBehaviour {
             }  // Fin de - foreach (GameObject hijo in GetComponent<ScriptDatosElemenItf>().listaDeHijos)
 
         }  // Fin de - if (GetComponent<ScriptDatosElemenItf>().listaDeHijos != null)
-
 
 
         // ///////////////////////////////////////////
@@ -299,21 +289,6 @@ public class SctExpandirEvi : MonoBehaviour {
                 { Debug.Log(" En SctExpandirEvi => botonExpandeEvi(), per el else sin condicion, Desde el evi : " + transform.name + " - con SubTipoElementIntf : " + transform.GetComponent<ScriptDatosElemenItf>().dameSubTipoElementIntf()); }
 
             }  // Fin de - else (sin condiciones)
-
-
-            // Nicolas Merino Ramirez
-            // Meter en un metodo
-            // Descripcion
-            //      Genera un EVI de referencia del EVI X en el contenedor de las migas de pan             
-            GameObject Bt_Contenedor = GameObject.FindGameObjectsWithTag("BT_Contenedor")[0];
-            Debug.Log("EXPANDE EVI " + Bt_Contenedor);
-
-            this.ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen
-            (
-                this.transform.gameObject,
-                //this.BT_Contenedor
-                Bt_Contenedor
-            );
 
         }  // Fin de - else - de - if (ramaAsociada != null)
 

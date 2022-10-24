@@ -598,12 +598,14 @@ public class ScriptLibGestorEvis : MonoBehaviour {
 
         EviRefElemen.GetComponent<ScriptDatosElemenItf>().ponSubTipoElementIntf(ScriptDatosElemenItf.subTipoElemItf_evi_EviRefElemen); // Indicamos que contiene una referencia
 
+
         EviRefElemen.GetComponent<SctCtrlEviRefElemen>().ElemenRef = ElemenRef; // Indicamos que contiene una referencia
 
-        EviRefElemen.GetComponent<SctCtrlEviRefElemen>().idElementIntf_elemenRef      = ElemenRef.GetComponent<ScriptDatosElemenItf>().dameIdElementIntf();      // Indicamos que contiene una referencia
-        EviRefElemen.GetComponent<SctCtrlEviRefElemen>().tipoElementIntf_elemenRef    = ElemenRef.GetComponent<ScriptDatosElemenItf>().dameTipoElementIntf();    // Indicamos que contiene una referencia
-        EviRefElemen.GetComponent<SctCtrlEviRefElemen>().idElementEnTipo_elemenRef    = ElemenRef.GetComponent<ScriptDatosElemenItf>().dameIdElementEnTipo();    // Indicamos que contiene una referencia
+        EviRefElemen.GetComponent<SctCtrlEviRefElemen>().idElementIntf_elemenRef = ElemenRef.GetComponent<ScriptDatosElemenItf>().dameIdElementIntf(); // Indicamos que contiene una referencia
+        EviRefElemen.GetComponent<SctCtrlEviRefElemen>().tipoElementIntf_elemenRef = ElemenRef.GetComponent<ScriptDatosElemenItf>().dameTipoElementIntf(); // Indicamos que contiene una referencia
+        EviRefElemen.GetComponent<SctCtrlEviRefElemen>().idElementEnTipo_elemenRef = ElemenRef.GetComponent<ScriptDatosElemenItf>().dameIdElementEnTipo(); // Indicamos que contiene una referencia
         EviRefElemen.GetComponent<SctCtrlEviRefElemen>().subTipoElementIntf_elemenRef = ElemenRef.GetComponent<ScriptDatosElemenItf>().dameSubTipoElementIntf(); // Indicamos que contiene una referencia
+
 
         // Para poner los datos del evi base, hay que esperar a que este exista, por lo que hay que hacerlo mediante una corrutina
         StartCoroutine(esperaYponDatosDeEviBaseDeEviRefElemen(EviRefElemen, ElemenRef, elemDestino));
@@ -1756,7 +1758,8 @@ public void gestionaInfoCanvas(GameObject eviBase)
     /// Observaciones:
     ///     PENDIENTE OJO se pueden referenciar elementos de interfaz que no sean evis, por lo que no tendrán base. (habra que cumplimentarlo 2021-05-31
     /// </summary>
-IEnumerator esperaYponDatosDeEviBaseDeEviRefElemen(GameObject EviRefElemen, GameObject ElemenRef, GameObject ObjetoPadre)
+
+    IEnumerator esperaYponDatosDeEviBaseDeEviRefElemen(GameObject EviRefElemen, GameObject ElemenRef, GameObject ObjetoPadre)
     {
         yield return null; // Esperamos un cuadro a que el evi base este listo
 
@@ -1923,7 +1926,6 @@ IEnumerator esperaYponDatosDeEviBaseDeEviRefElemen(GameObject EviRefElemen, Game
         ElemenRef.GetComponent<ScriptCtrlBaseDeEvi>().estadoIconoAyudaIntf = "texturaCargada";
 
     }  // Fin de - IEnumerator generaEviCompleto()
-    
 
 
 }  // Fin de - public class ScriptLibGestorEvis : MonoBehaviour {

@@ -4,7 +4,6 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - BtnBreadcrumbsTrails: {fileID: 7430904067732260883, guid: 93ffaa9b904fc36409dff742c647e9b4, type: 3}
   - Usuario: {instanceID: 0}
   - PunteroUsuario: {fileID: 1237271974719978, guid: 57cb1e77645f2ab4d8eb8d04c46b4b28, type: 3}
   - MainCamera: {instanceID: 0}
@@ -33,6 +32,7 @@ MonoImporter:
   - material_fondoInstancia: {instanceID: 0}
   - material_fondoSinTecho: {instanceID: 0}
   - material_fondoError: {instanceID: 0}
+  - panera: {fileID: 8858766989428621575, guid: ba5452d2a29b66e47b1fd46b8be831f9, type: 3}
   - BtnMenu_N1_General: {fileID: 1228779328007014, guid: f63075daab7764f448126170c232a138, type: 3}
   - BtnMenu_N1_1_Gereral_CtrlInterfaz: {fileID: 1735799823989876, guid: 352588be5797d7f4e8a75e678292b12d, type: 3}
   - BtnMenu_N1_1_Gereral_Escena: {fileID: 1125245181263528, guid: c155e3f3cb428984fb546a3764345554, type: 3}
@@ -54,8 +54,7 @@ MonoImporter:
   - BtnMenu_N2_1_Herramientas_buscador: {fileID: 1958264380586214, guid: 24b65dfd251b9864cb88ceceb795a445, type: 3}
   - BtnMenu_N2_1_Herramientas_mochila: {fileID: 1787502017442582, guid: c4d5083ff03de4a44ad2e729923c4962, type: 3}
   - BtnMenu_N2_1_Herramientas_agentes: {fileID: 1613517381672752, guid: 3857b52a58f49d544b9faf0523cb9dd7, type: 3}
-  - BtnMenu_N2_1_Herramientas_breadcrumbsTrails: {fileID: 7430904067732260883, guid: 93ffaa9b904fc36409dff742c647e9b4, type: 3}
-  - Contenedor_BreadcrumbsTrails: {fileID: 7048343519875994192, guid: eacca83e336a9eb4485e4648be70617a, type: 3}
+  - BtnMenu_N2_1_Herramientas_MigaPan: {fileID: 3232938649500062237, guid: 7ffbc978596cdc3459977479a5e906a5, type: 3}
   - materialMuro: {instanceID: 0}
   - BaseDeEvi_01: {instanceID: 0}
   - ContenedorDeEvi_01: {instanceID: 0}
