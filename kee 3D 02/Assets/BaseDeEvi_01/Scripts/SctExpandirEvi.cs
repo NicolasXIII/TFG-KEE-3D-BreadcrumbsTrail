@@ -292,6 +292,33 @@ public class SctExpandirEvi : MonoBehaviour {
 
         }  // Fin de - else - de - if (ramaAsociada != null)
 
+        // Nicolas Merino Ramirez
+        // Meter en un metodo
+        // Descripcion
+        //      Genera un EVI de referencia del EVI X en el contenedor de las migas de pan
+        /* Pruebas Hasta la solucion final
+        GameObject panera = GameObject.FindWithTag("Panera");
+        
+                this.ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen
+                (
+                    this.transform.gameObject,
+                    //panera
+                    //ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera
+                    this.ctrlInterfaz.GetComponent<ScriptCtrlPanera>().gameObject
+                );
+          
+        //ctrlInterfaz.GetComponent<ScriptCtrlPanera>().crearEviRefEnPanera(this.transform.gameObject);
+        */
+
+        // Nicolas Merino Ramirez
+        // Fecha    25/10/2022
+        // Descripcion
+        //      Para conseguir llegar al metodo "crearEviRefEnPanera()", primero necesitamos encontrar:
+        //          1 ctrlInterfaz, y la panera dentro de este
+        //          2 una vez encontrada la panera, busco su script de control "ScriptCtrlPanera", para poder acceder a sus metodos
+        ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera.GetComponent<ScriptCtrlPanera>().crearEviRefEnPanera(this.transform.gameObject);
+
+
     } // Fin de - public void botonExpandeEvi()
 
     /// <summary>

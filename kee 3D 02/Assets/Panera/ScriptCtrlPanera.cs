@@ -12,8 +12,8 @@ public class ScriptCtrlPanera : MonoBehaviour
     {
         ctrlInterfaz = GameObject.FindWithTag("ctrlInterfaz");
         
-        this.transform.localPosition = new Vector3(-0.361000001f, -0.39199999f, -15f);
-        this.transform.localScale = new Vector3(0.206234068f, 0.0904989168f, 0.100000001f);
+        this.transform.localPosition = new Vector3(-22f, -20f, -15f);
+        this.transform.localScale = new Vector3(32, 3.5f, 0.100000001f);
 
         // Actualizo la panera de "ScriptDatosInterfaz" con los datos que he puesto a la panera actualmente
         ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera = this.gameObject;
@@ -34,12 +34,28 @@ public class ScriptCtrlPanera : MonoBehaviour
         this.transform.gameObject.SetActive(on_Off);
     }
 
+    // Nicolas Merino Ramirez
+    // Fecha    25/10/2022
+    // Descripcion
+    //      Genera un EVI de referencia del EVI X expandido y lo coloca en el contenedor de las migas de pan
+    public void crearEviRefEnPanera(GameObject elemRef)
+    {
+        Debug.Log("Estoy crearEviRefEnPanera en ctrlpanera");
+        ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen
+        (
+            elemRef,
+            this.transform.gameObject
+        );
+
+        //this.annadir_Evi_A_Migas();
+    }
+
     // Autor Nicolas Merino Ramirez
     // Fecha 23/05/2022
     // Descripcion
     //      Annadir elementos al vector de migas de pan, y en caso de que el elemento ya este
     //      dentro del vector, se eliminan todos los que estan detras del elemento introducido
-    public void annadir_Evi_BreadcrumbsTrail(GameObject evi)
+    public void annadir_Evi_A_Migas(GameObject evi)
     {
         // Si las migas de pan NO contienen el nuevo elemento, se annade
         if (!this.List_BreadcrumbsTrails.Contains(evi))
@@ -65,8 +81,11 @@ public class ScriptCtrlPanera : MonoBehaviour
     //      Redimensiona los EVIs en la panera para que tengan un tamanno adecuado
     void redimensionar(GameObject evi)
     {
+        Debug.Log("Escala del Evi " + evi.transform.localScale);
+        Debug.Log("Escala de los botones " + ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().escala_BtnMenu_N2_1_Herramientas_MigaPan);
         // pongo a los elementos de la panera, la escala de los botones de herramientas,...
         evi.transform.localScale = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().escala_BtnMenu_N2_1_Herramientas_MigaPan;
+        Debug.Log("Escala del Evi despues de la transformacion" + evi.transform.localScale);
 
         // pongo el evi en la panera, pero en el eje x lo muevo ".12f" para crear una separacion
         evi.transform.localPosition = new Vector3
