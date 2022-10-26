@@ -19,7 +19,11 @@ public class ScriptBtnMenu_N2_1_Herramientas_MigaPan : MonoBehaviour
     void Start()
     {
         ctrlInterfaz = GameObject.FindWithTag("ctrlInterfaz");
-        panera = GameObject.FindWithTag("Panera");
+        //panera = GameObject.FindWithTag("Panera");
+        //panera = GameObject.Find("Panera");
+
+        //Debug.Log("encontrar panera por tag " + panera.transform.localScale);
+        //Debug.Log("encontrar ctrlinterfaz por tag " + ctrlInterfaz.transform.localScale);
 
         //this.panera_Activada = this.ctrlInterfaz.GetComponent<ScriptCtrlPanera>().activada;
         bt_Estado = false;
@@ -34,13 +38,11 @@ public class ScriptBtnMenu_N2_1_Herramientas_MigaPan : MonoBehaviour
         //      GetMouseButtonDown(0) es el click izquierdo
         if (Input.GetMouseButtonDown(0))
         {
-            /*if (!ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().gestionaEnPerRefracBotonMouse(quienDispara))
-            {
-            } */
-
             // Bandera que permite mantener la escala_Activada del boton, cuando se clicka en el
             click = !click;
-            panera.GetComponent<ScriptCtrlPanera>().activar_o_desactivar_Panera(click);
+
+            //panera.GetComponent<ScriptCtrlPanera>().activar_o_desactivar_Panera(click);
+            ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera.GetComponent<ScriptCtrlPanera>().activar_o_desactivar_Panera(click);
         }
     }
 

@@ -146,7 +146,7 @@ public class ScriptCtrlMuroUsuario : MonoBehaviour {
 		BtnMenu_N2_1_Herramientas_agentes.transform.localPosition = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().posicion_BtnMenu_N2_1_Herramientas_agentes;
 		BtnMenu_N2_1_Herramientas_agentes.transform.localScale = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().escala_BtnMenu_N2_1_Herramientas_agentes;
 
-		// Nicolas Merino Ramirez
+		// Autor	Nicolas Merino Ramirez
 		GameObject BtnMenu_N2_1_Herramientas_MigaPan = Instantiate(this.ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().BtnMenu_N2_1_Herramientas_MigaPan);
 		BtnMenu_N2_1_Herramientas_MigaPan.transform.SetParent(BtnMenu_N2_Herramientas.transform);
 		BtnMenu_N2_1_Herramientas_MigaPan.transform.localPosition = this.ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().posicion_BtnMenu_N2_1_Herramientas_MigaPan;
