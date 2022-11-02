@@ -1720,24 +1720,22 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         escala_z_panera = 1f;       // el muro es un cubo casi plano, solo tiene un poco de profundidad en y, para ajustar los colliders
         escala_panera = new Vector3(escala_x_panera, escala_y_panera, escala_z_panera);
 
-        Debug.Log("op lok "+ -((float)pixels_x_Pantalla / 2) / (float)pixels_x_Pantalla);
-
         // posicion(0 0 0) = centro de la pantalla
         // el resultado sera -0.5 para que vaya hacia abajo, la formula es para calcular el centro de la pantalla
         float panera_posicion_central_pantalla_x = (((float)pixels_x_Pantalla / 2) / (float)pixels_x_Pantalla);
         float panera_posicion_central_pantalla_y = (((float)pixels_y_Pantalla / 2) / (float)pixels_y_Pantalla);
-        float panera_margen_porcentual_x = ((float)pixels_x_Pantalla * .001f) / 100;    // margen del 0.001% en x
-        float panera_margen_porcentual_y = ((float)pixels_x_Pantalla * .001f) / 100;    // margen del 0.001% en y
+        //float panera_margen_porcentual_x = ((float)pixels_x_Pantalla * .001f) / 100;    // margen del 0.001% en x
+        //float panera_margen_porcentual_y = ((float)pixels_x_Pantalla * .001f) / 100;    // margen del 0.001% en y
 
         posicion_x_panera =
             -1 * panera_posicion_central_pantalla_x     // - centro, para alinear a la izq
             + (escala_x_panera * 1f / 2f)   // + la mitad en x de la panera, para que no quede media panera fuera de la pantalla
-            + panera_margen_porcentual_x;   // + el margen del 0.001%
+            + 1f / 100f;    // + el margen 0.01%
 
         posicion_y_panera =
             -1 * panera_posicion_central_pantalla_y     // - centro, para alinear abajo
             + (escala_y_panera * 1f / 2f)   // + la mitad en x de la panera, para que no quede media panera fuera de la pantalla
-            + panera_margen_porcentual_y;   // + el margen 0.001%
+            + 1f / 100f;    // + el margen 0.01%
 
         posicion_z_panera = 0f;
         posicion_panera = new Vector3(posicion_x_panera, posicion_y_panera, posicion_z_panera);
@@ -1755,6 +1753,7 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         posicion_z_panera = 0f;
         posicion_panera = new Vector3(posicion_x_panera, posicion_y_panera, posicion_z_panera);
         */
+
         Debug.Log("Desde ScriptDatosInterfaz 3 - obtenDimensionMonitor():\n" +
                 " - pixels_x_Pantalla = " + pixels_x_Pantalla + "\n" +
                 " - pixels_y_Pantalla = " + pixels_y_Pantalla + "\n\n" +
