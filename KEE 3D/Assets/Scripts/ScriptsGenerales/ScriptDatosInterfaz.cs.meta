@@ -1,0 +1,131 @@
+fileFormatVersion: 2
+guid: da2d705cbe344734fba465baa7a0449a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Usuario: {instanceID: 0}
+  - PunteroUsuario: {fileID: 1237271974719978, guid: 57cb1e77645f2ab4d8eb8d04c46b4b28,
+      type: 3}
+  - MainCamera: {instanceID: 0}
+  - Focoluz: {instanceID: 0}
+  - CanvasGeneral: {instanceID: 0}
+  - textInfoElemento: {instanceID: 0}
+  - objetoEnArrastre: {instanceID: 0}
+  - MuroUsuario: {fileID: 1580556683851008, guid: 89d3df8dc166ed248a2e79d271179373,
+      type: 3}
+  - Rama: {instanceID: 0}
+  - raizActual: {instanceID: 0}
+  - rama_Activo: {instanceID: 0}
+  - Muros: {instanceID: 0}
+  - muro: {instanceID: 0}
+  - muro_Activo: {instanceID: 0}
+  - Tramoya: {instanceID: 0}
+  - telon: {instanceID: 0}
+  - Solicitud: {instanceID: 0}
+  - AudioClip_PorDefecto: {instanceID: 0}
+  - material_fondoReferencia: {instanceID: 0}
+  - material_fondoInstancia: {instanceID: 0}
+  - material_fondoSinTecho: {instanceID: 0}
+  - material_fondoError: {instanceID: 0}
+  - BtnMenu_N1_General: {fileID: 1228779328007014, guid: f63075daab7764f448126170c232a138,
+      type: 3}
+  - BtnMenu_N1_1_Gereral_CtrlInterfaz: {fileID: 1735799823989876, guid: 352588be5797d7f4e8a75e678292b12d,
+      type: 3}
+  - BtnMenu_N1_1_Gereral_Escena: {fileID: 1125245181263528, guid: c155e3f3cb428984fb546a3764345554,
+      type: 3}
+  - BtnMenu_N1_1_Gereral_Herramientas: {fileID: 1535998426519724, guid: a938c835812b2a3469f25f6b65dc1159,
+      type: 3}
+  - BtnMenu_N2_CtrlInterfaz: {fileID: 1012138945875502, guid: 2972624e1931ea949a31597c8a72a332,
+      type: 3}
+  - BtnMenu_N2_1_CtrlInterfaz_cargar: {fileID: 1859185886289768, guid: 88ee65f7113e8ee44bf91551e9591b87,
+      type: 3}
+  - BtnMenu_N2_1_CtrlInterfaz_grabar: {fileID: 1647882587064898, guid: 2342599e2fa29474fa68593ee48b6013,
+      type: 3}
+  - BtnMenu_N2_1_CtrlInterfaz_audio: {fileID: 1451950725986054, guid: e266a3649136cbb40b0e37d62b901a3f,
+      type: 3}
+  - BtnMenu_N2_1_CtrlInterfaz_complejidad: {fileID: 1823228352598618, guid: c5d545b0e3b74814eaeeaafb7e3fefd6,
+      type: 3}
+  - BtnMenu_N2_1_CtrlInterfaz_idiomas: {fileID: 1586752690493190, guid: 5be9ab8e5442e6e4f8c8263c8238d353,
+      type: 3}
+  - BtnMenu_N2_1_CtrlInterfaz_ambito: {fileID: 1948653894737838, guid: f8e4d595b0a0b0a4fba7ab355cb8c631,
+      type: 3}
+  - BtnMenu_N2_Escena: {fileID: 1437976182331192, guid: d8f698e1c85aa944884d8464f8b86760,
+      type: 3}
+  - BtnMenu_N2_1_Escena_CreaMuro: {fileID: 1173491989629598, guid: 97c93e5f2d796fc49a39463a766c9075,
+      type: 3}
+  - BtnMenu_N2_1_Escena_EliminaMuro: {fileID: 1192685910121514, guid: c7f6259b564cdea43bea3bd9c5823188,
+      type: 3}
+  - BtnMenu_N2_1_Escena_GeneraRama: {instanceID: 0}
+  - BtnMenu_N2_1_Escena_CreaConcepto: {instanceID: 0}
+  - BtnMenu_N2_Herramientas: {fileID: 1086522575093546, guid: 66185b8b8b406e44e88e7e3a68a3bc30,
+      type: 3}
+  - BtnMenu_N2_1_Herramientas_buscador: {fileID: 1958264380586214, guid: 24b65dfd251b9864cb88ceceb795a445,
+      type: 3}
+  - BtnMenu_N2_1_Herramientas_mochila: {fileID: 1787502017442582, guid: c4d5083ff03de4a44ad2e729923c4962,
+      type: 3}
+  - BtnMenu_N2_1_Herramientas_agentes: {fileID: 1613517381672752, guid: 3857b52a58f49d544b9faf0523cb9dd7,
+      type: 3}
+  - materialMuroActivo: {fileID: 2100000, guid: 81a5f8f44765244428b8fa8895d31645,
+      type: 2}
+  - materialMuroInactivo: {instanceID: 0}
+  - BaseDeEvi_01: {instanceID: 0}
+  - ContenedorDeEvi_01: {instanceID: 0}
+  - TexAyuIntfBaseDeEvi: {instanceID: 0}
+  - ImgAyuIntfBaseDeEvi: {instanceID: 0}
+  - Btn_Evi_Info: {fileID: 1167059817826862, guid: d83a6fb7f7caa87489c603c56713d63e,
+      type: 3}
+  - Btn_Evi_Maxi_Mini: {fileID: 1055791413650776, guid: eeac8d988ead3b444b8818cab2052595,
+      type: 3}
+  - Btn_Evi_Desplazar: {fileID: 1263681243517304, guid: 169b4952b091e4a40ba87101a0dd81c3,
+      type: 3}
+  - Btn_Evi_Opciones: {fileID: 1676007680710498, guid: 489512bd32a4f5b46aae09309b416fb8,
+      type: 3}
+  - Btn_Evi_Caja_opciones: {fileID: 1106085932239622, guid: a326f1794dd18cf47bfdece5a1426e4d,
+      type: 3}
+  - MaterialBtnCajaOpciones: {instanceID: 0}
+  - MaterialBtnClonar: {instanceID: 0}
+  - MaterialBtnInstanciar: {instanceID: 0}
+  - MaterialBtnDesplazar: {instanceID: 0}
+  - MaterialBtnDesplazarInstancia: {instanceID: 0}
+  - MaterialBtnDesplazarSinTecho: {instanceID: 0}
+  - MaterialBtnEditar: {instanceID: 0}
+  - MaterialBtnEliminar: {instanceID: 0}
+  - MaterialBtnExpandir: {instanceID: 0}
+  - MaterialBtnInfo: {instanceID: 0}
+  - MaterialBtnMaximiza: {instanceID: 0}
+  - MaterialBtnMaximizaInstancia: {instanceID: 0}
+  - MaterialBtnMaximizaSinTecho: {instanceID: 0}
+  - MaterialBtnMinimiza: {instanceID: 0}
+  - MaterialBtnMinimizaInstancia: {instanceID: 0}
+  - MaterialBtnMinimizaSinTecho: {instanceID: 0}
+  - MaterialBtnOpciones: {instanceID: 0}
+  - MaterialBtnOpcionesInstancia: {instanceID: 0}
+  - MaterialBtnOpcionesSinTecho: {instanceID: 0}
+  - EviTipo_00: {fileID: 1534399607397202, guid: a1b734c4a8d1e724eb392e2783b5f317,
+      type: 3}
+  - EviFractal_00: {fileID: 1534399607397202, guid: a1b734c4a8d1e724eb392e2783b5f317,
+      type: 3}
+  - EviTipo_muestraGetDetails_00: {fileID: 1315478504371342, guid: ba7e3d738efc7374b9dba1b2a0cffb1f,
+      type: 3}
+  - EviTipo_buscador_00: {fileID: 1352939575243828, guid: 25f840037597d7d4cb157561e38d290a,
+      type: 3}
+  - EviTipo_Rama_00: {instanceID: 0}
+  - EviTipo_RefFractal_01: {instanceID: 0}
+  - EviTipo_RF01_FractumRef: {instanceID: 0}
+  - EviRefElemen: {fileID: 3077009109102664342, guid: 4176b38a6490aee498dfd942f71f8faa,
+      type: 3}
+  - materialGenerico: {instanceID: 0}
+  - materialBaseDeEvi_01: {instanceID: 0}
+  - materialEvi_01: {fileID: 2100000, guid: ccb37437a88fe094a934914c64c874ba, type: 2}
+  - materialEviActivo: {fileID: 2100000, guid: 52931cd7c5716324f997a24a31877cb7, type: 2}
+  - materialEviConDatos: {fileID: 2100000, guid: c45d18dac6908f84c84a80a5c7fcb11e,
+      type: 2}
+  - MaterialEviTipo_buscador_00: {instanceID: 0}
+  - MaterialEviTipo_Rama_00: {instanceID: 0}
+  - MaterialEviTipo_RefFractal_01: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
