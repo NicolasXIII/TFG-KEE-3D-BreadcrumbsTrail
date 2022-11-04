@@ -151,7 +151,9 @@ public class SctExpandirEvi : MonoBehaviour {
 
         // ///////////////////////////////////////////
         // ///////////////////////////////////////////
-        // 2.) Si el evi ya ha sido expandido (o la rama creada), nos colocamos e la rama asociada (o la que expande el evi) en el primer muro, para navegar por ella
+        // 2.) Si el evi ya ha sido expandido (o la rama creada),
+        // nos colocamos e la rama asociada (o la que expande el evi) en el primer muro,
+        // para navegar por ella
 
         if (ramaAsociada != null)
         {
@@ -186,7 +188,8 @@ public class SctExpandirEvi : MonoBehaviour {
         } // Fin de - if (ramaAsociada != null)
         // ///////////////////////////////////////////
         // ///////////////////////////////////////////
-        // 3.) Si el evi no esta expandido o no se ha generado la rama(si es un evi de rama), se expande el evi, o se genera la rama correspondiente
+        // 3.) Si el evi no esta expandido o no se ha generado la rama(si es un evi de rama),
+        // se expande el evi, o se genera la rama correspondiente
         else
         {
                 // ///////////////////////////////////////////

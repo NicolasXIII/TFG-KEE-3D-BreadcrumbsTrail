@@ -21,6 +21,8 @@ public class ScriptLibGestorEvis : MonoBehaviour {
 
     // definir que espacio del total se ocupa
     public GameObject Tramoya;
+    // Nicolas Merino Ramirez
+    public GameObject ctrlInterfaz;
 
     // /////////////////////////////////////////////
     // TIPOS POSIBLES DE CONCERSION DE COORDENADAS
@@ -38,6 +40,8 @@ public class ScriptLibGestorEvis : MonoBehaviour {
     {
         // Asignamos objetos
         Tramoya = GameObject.FindWithTag("Tramoya");
+        // Nicolas Merino Ramirez
+        ctrlInterfaz = GameObject.FindWithTag("ctrlInterfaz");
     }
 
     // Update is called once per frame
@@ -1870,7 +1874,7 @@ public void gestionaInfoCanvas(GameObject eviBase)
     ///     PENDIENTE OJO se pueden referenciar elementos de interfaz que no sean evis, por lo que no tendrán base. (habra que cumplimentarlo 2021-05-31
     ///     - Hay que tener en cuenta que los EviDeReferenciaAElementoDeInterfaz "EviRefElemen", son evis que hacen referencia a elemntos concretos de la interfaz,
     ///         pudiendo ser estos evis de referencia o instancia a concepto, muros, evis de rama u otros...
-    ///         - Para el caso de HACER REFERENCIA A EVIS DE INSTANCIA O REFERENCIA A UN CONCEPTO, el "EviRefElemen" sirve para ir auna ramificacion concreta donde este evi se expande
+    ///         - Para el caso de HACER REFERENCIA A EVIS DE INSTANCIA O REFERENCIA A UN CONCEPTO, el "EviRefElemen" sirve para ir a una ramificacion concreta donde este evi se expande
     ///             por ejemplo. Esto es, cada vez que se expande un evi de referencia o instancia a concepto, la interfaz nos traslada al muro donde este se ha expandido, dando
     ///             pues un paso de navegacion. En cada paso se genera un "EviRefElemen", que, como una miga de pan, se almacena en la panera, para poder seguir la secuencia de pasos
     ///             de navegación que el usuario va realizando
@@ -1914,19 +1918,19 @@ public void gestionaInfoCanvas(GameObject eviBase)
         yield return null; // Esperamos un cuadro a para no mezcalr procesos que da la lata
 
         //  1.) Accedemos al evi base del EviRefElemen. OJO el EviRefElemen esta en el contenedor de este evi base
-        //        GameObject EviBaseDeEviRefElemen = EviRefElemen.GetComponent<SctCtrlEviRefElemen>().EviBase; // Obtenemos el EVI base (donde temos que cargar la Ayuda Int) del EviRefElemen
-
-        GameObject EviBaseDeEviRefElemen = EviRefElemen.GetComponent<SctCtrlEviRefElemen>().EviBase; // Obtenemos el EVI base (donde temos que cargar la Ayuda Int) del EviRefElemen;;
+        GameObject EviBaseDeEviRefElemen = EviRefElemen.GetComponent<SctCtrlEviRefElemen>().EviBase; // Obtenemos el EVI base (donde temos que cargar la Ayuda Int) del EviRefElemen;
 
         // //////////////////////////////////////////////////////////////////////
         // //////////////////////////////////////////////////////////////////////
-        // 2.) Primero, atendiendo al tipo de elemento que referencia este EviDeReferenciaAElementoDeInterfaz "EviRefElemen", actuamos en conseguencia :
-        // Gestion del tipo de elemento de interfaz que refiere este EviRefElemen
-        // OJOO Habra que tener en cuenta el tipo de elemento que se referenca ( si es evi podra serlo de referencia, instancia sin techo, muro, rama... y pueden ser otros 
-        // Tambien hay que tener en cuenta el contenedor donde ira el evi de referencia a elemento
-        // elementos de otros tipos 
+        // 2.) Primero, atendiendo al tipo de elemento que referencia este EviDeReferenciaAElementoDeInterfaz "EviRefElemen", actuamos en consecuencia :
+        //  Gestion del tipo de elemento de interfaz que refiere este EviRefElemen
+        //  OJOO Habra que tener en cuenta el tipo de elemento que se referenca ( si es evi podra serlo de referencia, instancia sin techo, muro, rama... y pueden ser otros 
+        //  Tambien hay que tener en cuenta el contenedor donde ira el evi de referencia a elemento
+        //  elementos de otros tipos 
 
-        GameObject eviParaDatosInterrfaz = ElemenRef;  // Este servira de referencia para saber que ayuda a interfaz es la que hay que utilizar segun hagamos referencia a un evi, a un muro, rama, o lo que proceda
+        // Este servira de referencia para saber que ayuda a interfaz es la que hay que utilizar segun hagamos referencia a un evi,
+        // a un muro, rama, o lo que proceda
+        GameObject eviParaDatosInterrfaz = ElemenRef;
 
         if (EviRefElemen.GetComponent<SctCtrlEviRefElemen>().tipoElementIntf_elemenRef == ScriptDatosElemenItf.tipoElemItf_evi)
         {
@@ -1938,7 +1942,6 @@ public void gestionaInfoCanvas(GameObject eviBase)
 
             // En principio todos los evis de referencia a elemento de interfaz tienen los botones del evi base en los colores siguientes
             // "Btn_BaseDeEvi_N1_Maxi_Mini" = marron; salvo que sean 
-
 
             if (EviRefElemen.GetComponent<SctCtrlEviRefElemen>().subTipoElementIntf_elemenRef == ScriptDatosElemenItf.subTipoElemItf_evi_rama)
             {
@@ -2159,6 +2162,15 @@ public void gestionaInfoCanvas(GameObject eviBase)
 
         gestionaEviRefElementoenLista(EviBaseDeEviRefElemen, ObjetoPadre);
 
+        // Autor    Nicolas Merino Ramirez
+        // Fecha    2022/11/04
+        // Descripcion
+        //      Mando la referencia del EVI expandido al scrip de la panera, para annadirlo ahi
+
+        ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera.GetComponent<ScriptCtrlPanera>().annadir_Evi_A_Migas(EviBaseDeEviRefElemen);
+
+
+
     }  // Fin de - IEnumerator generaEviCompleto()
 
     /// <summary>
@@ -2181,12 +2193,12 @@ public void gestionaInfoCanvas(GameObject eviBase)
         // OJOOO. si este evi de referenciaa elemento, se decide eliminarlo (porque este repetido, por ejemplo). Antes de borrarlo hay que eliminarlo de la lista
         // de hijos de su padre "public List<GameObject> listaDeHijos" en "ScriptDatosElemenItf"
         // OJOO Nicolas Merino. Debe insertarse aqui la posibilidad de que vaya a la panera
-        if (ObjetoPadre == this.GetComponent<ScriptDatosInterfaz>().panera)
-        {
-            GameObject destino = this.GetComponent<ScriptDatosInterfaz>().panera;
-            EviBaseDeEviRefElemen.transform.SetParent(destino.transform);
-        }
-        else if (ObjetoPadre == this.GetComponent<ScriptDatosInterfaz>().muro_Activo)
+        //if (ObjetoPadre == this.GetComponent<ScriptDatosInterfaz>().panera)
+        //{
+        //    GameObject destino = this.GetComponent<ScriptDatosInterfaz>().panera;
+        //    EviBaseDeEviRefElemen.transform.SetParent(destino.transform);
+        //}
+        if (ObjetoPadre == this.GetComponent<ScriptDatosInterfaz>().muro_Activo)
         {
             GameObject destino = this.GetComponent<ScriptDatosInterfaz>().muro_Activo;
             EviBaseDeEviRefElemen.transform.SetParent(destino.transform);
