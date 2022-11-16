@@ -1715,8 +1715,8 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         /// /////////////////    panera  ////////////////////////////////////////////////////
         /// 
         
-        escala_x_panera = 1f/3f;    // El boton es 1/5 del la escala del muro si la escala es 5, el muro es de 10x10, y el boton es uno
-        escala_y_panera = 1f / 10f; // igual que en x
+        escala_x_panera = 1f/3f;    // El boton es 1/3 del la escala del muro de usuario
+        escala_y_panera = 1f/10f;   // igual que en x
         escala_z_panera = 1f;       // el muro es un cubo casi plano, solo tiene un poco de profundidad en y, para ajustar los colliders
         escala_panera = new Vector3(escala_x_panera, escala_y_panera, escala_z_panera);
 
