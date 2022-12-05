@@ -85,16 +85,36 @@ public class ScriptCtrlPanera : MonoBehaviour
         }
     }*/
 
+    // Autor Nicolas Merino Ramirez
+    // Fecha        2022/05/23
+    // Modificacion 2022/11/30
+    // Descripcion
+    //      Annadir elementos al vector de migas de pan, y en caso de que el elemento ya este
+    //      dentro del vector, se eliminan todos los que estan detras del elemento introducido
     public void annadir_Evi_A_Migas(GameObject evi)
     {
         Debug.Log("Entrando en panera _ annadir");
 
         // Si el elemento referenciado esta en las migas, se eliminan los que van detras
-        bool id_New_Evi = esta_el_elemento_referenciado_en_las_migas(evi);
+        bool repetido = esta_el_elemento_referenciado_en_las_migas(evi);
         
         // Si las migas de pan NO contienen el nuevo elemento, se annade
-        if (id_New_Evi == false)
+        if (repetido == false)
         {
+            /* 
+            // Con este if, pretendo distinguir si entra un evi o un muro
+            // es el presunto evi que entra de tipo "evi"?
+            if ("evi" == evi.transform.Find("ContenedorDeEvi_01").transform.Find("EviRefElemen(Clone)").gameObject.GetComponent<SctCtrlEviRefElemen>().tipoElementIntf_elemenRef)
+            {
+                // El evi de referencia de la panera, le pongo en el script "SctCtrlEviRefElemen" valor al atributo "migaPan_MuroDestino",
+                // dicho valor sera rellenado por el muro donde se abre el concepto original, el cual viene en el atributo "EviBase"
+                //
+                // ....migaPan_MuroDestino = ....EviBase
+                evi.transform.Find("ContenedorDeEvi_01").transform.Find("EviRefElemen(Clone)").gameObject.GetComponent<SctCtrlEviRefElemen>().migaPan_MuroDestino 
+                    =
+                evi.transform.Find("ContenedorDeEvi_01").transform.Find("EviRefElemen(Clone)").gameObject.GetComponent<SctCtrlEviRefElemen>().EviBase;
+            }*/
+
             evi.transform.SetParent(this.transform);    // Ahijo la miga de pan a la panera
             this.List_BreadcrumbsTrails.Add(evi);       // Annado la miga a la lista
             this.redimensionar_Evi(evi);
@@ -102,7 +122,7 @@ public class ScriptCtrlPanera : MonoBehaviour
     }
 
     // Autor Nicolas Merino Ramirez
-    // Fecha 19/10/2022
+    // Fecha 2022/10/19
     // Descripcion
     //      Redimensiona los EVIs en la panera para que tengan un tamanno adecuado y los muestra
     //      con un formato adecuado
@@ -161,13 +181,9 @@ public class ScriptCtrlPanera : MonoBehaviour
     {
         int ref_Original = evi.transform.Find("ContenedorDeEvi_01").transform.Find("EviRefElemen(Clone)").gameObject.GetComponent<SctCtrlEviRefElemen>().idElementIntf_elemenRef;
 
-        Debug.Log(
-            "metodo:  ->  esta_el_elemento_referenciado_en_las_migas\n" +
-            "Nº Evi referencia:         " + evi.GetComponent<ScriptDatosElemenItf>().idElementIntf + "\n" +
-            "Nº Evi original de la ref: " + ref_Original
-        );
+        Debug.Log("metodo:  ->  esta_el_elemento_referenciado_en_las_migas\n" + "Nº Evi referencia: " + evi.GetComponent<ScriptDatosElemenItf>().idElementIntf + "\n" + "Nº Evi original de la ref: " + ref_Original);
 
-        GameObject anterior = null;
+        //GameObject anterior = null;
 
         foreach (GameObject elemento in List_BreadcrumbsTrails)
         {
@@ -219,6 +235,26 @@ public class ScriptCtrlPanera : MonoBehaviour
                 );
                 return true;
             }
+            // Explicacion del if
+            //      - Saco el ID de elemento de interfaz al que hace referencia el evi que entra
+            //      - Saco el id del muro donde se abre el concepto,... que aparece en la miga de pan
+            // Si son iguales, el muro que viene es hijo de un elemento de la panera, con lo que abria que borrar hasta dicho elemento (sin incluirlo)
+            else if (ref_Original ==
+                elemento.transform.Find("ContenedorDeEvi_01").transform.Find("EviRefElemen(Clone)").gameObject.GetComponent<SctCtrlEviRefElemen>().migaPan_MuroDestino.GetComponent<ScriptDatosElemenItf>().idElementIntf
+                )
+            {
+                // 1+, porque -> el muro que viene es hijo de un elemento de la panera, con lo que abria que borrar hasta dicho elemento (sin incluirlo)
+                eliminar_Migas(1 +
+                    List_BreadcrumbsTrails.IndexOf(
+                        buscar_Evi_En_Panera_By_ID
+                        (
+                            elemento.GetComponent<ScriptDatosElemenItf>().idElementIntf
+                        )
+                    )
+                );
+
+                return true;
+            }
             // Caso de que sea un evi de "Instancia"
             //
             // Explicacion
@@ -226,7 +262,7 @@ public class ScriptCtrlPanera : MonoBehaviour
             //    - Compruebo que el subtipo del evi anterior no sea de tipo Instancia (evi_baseInstFractal)
             // En caso de que sea de tipo instancia, borro tanto el muro donde se expande, como la referencia
             // a la instancia dentro de las migas de pan
-            else if (anterior != null &&
+            /*else if (anterior != null &&
                 "evi_baseInstFractal" ==
                 anterior.transform.Find("ContenedorDeEvi_01").transform.Find("EviRefElemen(Clone)").gameObject.GetComponent<SctCtrlEviRefElemen>().subTipoElementIntf_elemenRef)
             {
@@ -244,10 +280,13 @@ public class ScriptCtrlPanera : MonoBehaviour
             }
 
             // Pongo el elemento actual como "anterior", para poder acceder a el en la siguiente iteracion
-            anterior = elemento;
+            anterior = elemento;*/
         }
         return false;
     }
+
+
+
 
     // Autor Nicolas Merino Ramirez
     // Fecha        26/11/2022

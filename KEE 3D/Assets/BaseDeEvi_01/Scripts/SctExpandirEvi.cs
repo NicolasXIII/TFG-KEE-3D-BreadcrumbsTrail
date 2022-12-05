@@ -118,8 +118,7 @@ public class SctExpandirEvi : MonoBehaviour {
 
         if (transform.GetComponent<ScriptDatosElemenItf>().dameSubTipoElementIntf() == ScriptDatosElemenItf.subTipoElemItf_evi_baseSinTecho_00)
         {
-            if (DatosGlobal.niveDebug > 1000)
-            { Debug.Log(" En SctExpandirEvi => botonExpandeEvi(), paso 0, Desde el evi : " + transform.name + " - con SubTipoElementIntf : " + transform.GetComponent<ScriptDatosElemenItf>().dameSubTipoElementIntf()); }
+            if (DatosGlobal.niveDebug > 1000){ Debug.Log(" En SctExpandirEvi => botonExpandeEvi(), paso 0, Desde el evi : " + transform.name + " - con SubTipoElementIntf : " + transform.GetComponent<ScriptDatosElemenItf>().dameSubTipoElementIntf()); }
             expandeSinTecho();
             return;
             //    Si el evi origen ES UN EVI SIN TECHO (PENDIENTE MAFG 2021-03-14)
@@ -176,9 +175,10 @@ public class SctExpandirEvi : MonoBehaviour {
             Usuario.transform.localRotation = rotacionUsr;
 
             // Generamos el evi de referencia para la miga de pan MAFG 2022-10-12
-            ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(this.transform.gameObject, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
-            ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().generacion_EviRefElemen_ocupada = true; // ver definicion de "generacion_EviRefElemen_ocupada"
-
+            //ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(this.transform.gameObject, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
+            //ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().generacion_EviRefElemen_ocupada = true; // ver definicion de "generacion_EviRefElemen_ocupada"
+            // Nicolas Merino Ramirez 4/12/2022
+            generar_referencia_para_MigaPan(true);
 
             // COlocamos al usuario en el prime muro de la ramma en la que acabamos de entrar
             int direccion = 1;  // La direccion es 1, porque vamos hacia adelante
@@ -207,8 +207,10 @@ public class SctExpandirEvi : MonoBehaviour {
                 ramaAsociada = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().rama_Activo.GetComponent<ScriptCtrlRama>().generaRama(gameObject, this.GetComponent<ScriptDatosElemenItf>().modo);
 
                 // Generamos el evi de referencia para la miga de pan MAFG 2022-10-12
-                ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(this.transform.gameObject, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
-                ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().generacion_EviRefElemen_ocupada = true; // ver definicion de "generacion_EviRefElemen_ocupada"
+                //ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(this.transform.gameObject, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
+                //ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().generacion_EviRefElemen_ocupada = true; // ver definicion de "generacion_EviRefElemen_ocupada"
+                // Nicolas Merino Ramirez 4/12/2022
+                generar_referencia_para_MigaPan(true);
 
             }  // Fin de - if (transform.GetComponent<ScriptDatosElemenItf>().dameSubTipoElementIntf() == ScriptDatosElemenItf.subTipoElemItf_evi_rama)
                // ///////////////////////////////////////////
@@ -234,8 +236,10 @@ public class SctExpandirEvi : MonoBehaviour {
                 StartCoroutine(esperaMuro());
 
                 // Generamos el evi de referencia para la miga de pan MAFG 2022-10-12
-                ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(this.transform.gameObject, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
-                ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().generacion_EviRefElemen_ocupada = true; // ver definicion de "generacion_EviRefElemen_ocupada"
+                //ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(this.transform.gameObject, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
+                //ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().generacion_EviRefElemen_ocupada = true; // ver definicion de "generacion_EviRefElemen_ocupada"
+                // Nicolas Merino Ramirez 4/12/2022
+                generar_referencia_para_MigaPan(true);
 
             }  // Fin de - else if (transform.GetComponent<ScriptDatosElemenItf>().dameSubTipoElementIntf() == ScriptDatosElemenItf.subTipoElemItf_evi_RefFractal)
                // ///////////////////////////////////////////
@@ -259,7 +263,9 @@ public class SctExpandirEvi : MonoBehaviour {
                 StartCoroutine(esperaMuro());
 
                 // Generamos el evi de referencia para la miga de pan MAFG 2022-10-12
-                ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(this.transform.gameObject, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
+                //ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(this.transform.gameObject, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
+                // Nicolas Merino Ramirez 4/12/2022
+                generar_referencia_para_MigaPan(false);
 
             }  // Fin de - 
                // ///////////////////////////////////////////
@@ -312,10 +318,26 @@ public class SctExpandirEvi : MonoBehaviour {
                 { Debug.Log(" En SctExpandirEvi => botonExpandeEvi(), per el else sin condicion, Desde el evi : " + transform.name + " - con SubTipoElementIntf : " + transform.GetComponent<ScriptDatosElemenItf>().dameSubTipoElementIntf()); }
 
             }  // Fin de - else (sin condiciones)
-
         }  // Fin de - else - de - if (ramaAsociada != null)
 
     } // Fin de - public void botonExpandeEvi()
+
+    // Fecha    4/10/2022
+    // Descripcion  Generamos el evi de referencia para la miga de pan
+    //  Cuando la transicion al muro finaliza, la variable se vuelve a poner a cero para permitir la generacion de "EviRefElemen" en futuros transitos
+    //      true  : el transito de muro NO debe generar "EviRefElemen"
+    //      false : el transito de muro SI debe generar "EviRefElemen"
+    public void generar_referencia_para_MigaPan(bool transito)
+    {
+        ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(
+            this.transform.gameObject,
+            ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera
+        );
+
+        // Des/Habilito la generacion de evi de referencia
+        // (Evita un problema entre transicion entre muros y expandir evis)
+        ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().generacion_EviRefElemen_ocupada = transito;
+    }
 
     /// <summary>
     /// /////////////////////////////////////////////////////////////////

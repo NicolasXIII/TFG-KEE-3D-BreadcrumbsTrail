@@ -86,6 +86,12 @@ public class SctCtrlEviRefElemen : MonoBehaviour
     public static string estOpCont_cargado = "cargado";
     public static string estOpCont_listo = "listo";
 
+    // Autor Nicolas Merino Ramirez
+    // Fecha 1/12/2022
+    // Descripccion:
+    //      Con este atributo se pretende hacer referencia al muro donde se va a abrir en el concepto, instancia,...
+    public GameObject migaPan_MuroDestino;
+
 
     /// <summary>
     /// //////////////////////////////////////////////////////////////////////////////////////

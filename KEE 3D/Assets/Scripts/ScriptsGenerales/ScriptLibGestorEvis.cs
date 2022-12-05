@@ -2163,13 +2163,15 @@ public void gestionaInfoCanvas(GameObject eviBase)
         gestionaEviRefElementoenLista(EviBaseDeEviRefElemen, ObjetoPadre);
 
         // Autor    Nicolas Merino Ramirez
+        // Fecha    2022/12/04
+        // Rellenar en el contenedor del elemento de referencia el att "migaPan_MuroDestino" que me dice en que muro se abre su concepto original
+        EviRefElemen.GetComponent<SctCtrlEviRefElemen>().migaPan_MuroDestino = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().muro_Activo;
+
+        // Autor    Nicolas Merino Ramirez
         // Fecha    2022/11/04
         // Descripcion
         //      Mando la referencia del EVI expandido al scrip de la panera, para annadirlo ahi
-
         ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera.GetComponent<ScriptCtrlPanera>().annadir_Evi_A_Migas(EviBaseDeEviRefElemen);
-
-
 
     }  // Fin de - IEnumerator generaEviCompleto()
 

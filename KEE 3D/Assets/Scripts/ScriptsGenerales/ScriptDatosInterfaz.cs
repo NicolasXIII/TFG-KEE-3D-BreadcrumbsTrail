@@ -91,13 +91,18 @@ public class ScriptDatosInterfaz : MonoBehaviour {
     private DateTime iniciPerRefractBotonMouse;  // Para almacenar el momento de inicio de cualquier periodo de refraccion para el click del mouse
     private bool enPeriodoDeRefraccion;  // true : el boton del mouse esta en periodo de refraccion - false : el boton del mouse NO esta en periodo de refraccion
 
-    public bool generacion_EviRefElemen_ocupada;   // Cuando se produce una transicion entre muros, se genera un "EviRefElemen", cuando se expande un evi, tambien, pero cuando se expande un evi,
-                                                    // tambien se realiza una transicion al muro donde se realiza la expansion del evi. Con lo que en ocasiones (cuando se expande un evi por ejemplo)
-                                                    //se generan dos "EviRefElemen". Para evitar esto, se utiliza esta variable que se pone a true cuando se solicita la expansion del evo y evita
-                                                    // que el transito al muro genere otro "EviRefElemen".
-                                                    // Cuando la transicion al muro finaliza, la variable se vuelve a poner a cero para permitir la generacion de "EviRefElemen" en futuros transitos
-                                                    // true : el transito de muro NO debe generar "EviRefElemen"
-                                                    // false : el transito de muro SI debe generar "EviRefElemen"
+    public bool generacion_EviRefElemen_ocupada;    // Cuando se produce una transicion entre muros, se genera un "EviRefElemen",
+                                                    // cuando se expande un evi, tambien, pero cuando se expande un evi,
+                                                    // tambien se realiza una transicion al muro donde se realiza la expansion del evi.
+                                                    // Ejemplo:
+                                                    //  Con lo que en ocasiones (cuando se expande un evi por ejemplo)
+                                                    //      Se generan dos "EviRefElemen". Para evitar esto, se utiliza esta variable que se pone a
+                                                    //      true cuando se solicita la expansion del evi y evita que el transito al muro genere otro
+                                                    //      "EviRefElemen".
+                                                    // Cuando la transicion al muro finaliza, la variable se vuelve a poner a cero para permitir la
+                                                    // generacion de "EviRefElemen" en futuros transitos
+                                                    //      true  : el transito de muro NO debe generar "EviRefElemen"
+                                                    //      false : el transito de muro SI debe generar "EviRefElemen"
 
     public long ordinal_de_identificador_unico;  // Este ordinal se utiliza para generar identificadores unicos en todo el KEE. Cada vez que se utiliza, debe incrementarse (antes de usarlo)
 
