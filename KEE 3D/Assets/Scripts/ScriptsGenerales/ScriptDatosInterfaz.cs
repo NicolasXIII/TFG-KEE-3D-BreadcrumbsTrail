@@ -91,18 +91,13 @@ public class ScriptDatosInterfaz : MonoBehaviour {
     private DateTime iniciPerRefractBotonMouse;  // Para almacenar el momento de inicio de cualquier periodo de refraccion para el click del mouse
     private bool enPeriodoDeRefraccion;  // true : el boton del mouse esta en periodo de refraccion - false : el boton del mouse NO esta en periodo de refraccion
 
-    public bool generacion_EviRefElemen_ocupada;    // Cuando se produce una transicion entre muros, se genera un "EviRefElemen",
-                                                    // cuando se expande un evi, tambien, pero cuando se expande un evi,
-                                                    // tambien se realiza una transicion al muro donde se realiza la expansion del evi.
-                                                    // Ejemplo:
-                                                    //  Con lo que en ocasiones (cuando se expande un evi por ejemplo)
-                                                    //      Se generan dos "EviRefElemen". Para evitar esto, se utiliza esta variable que se pone a
-                                                    //      true cuando se solicita la expansion del evi y evita que el transito al muro genere otro
-                                                    //      "EviRefElemen".
-                                                    // Cuando la transicion al muro finaliza, la variable se vuelve a poner a cero para permitir la
-                                                    // generacion de "EviRefElemen" en futuros transitos
-                                                    //      true  : el transito de muro NO debe generar "EviRefElemen"
-                                                    //      false : el transito de muro SI debe generar "EviRefElemen"
+    public bool generacion_EviRefElemen_ocupada;   // Cuando se produce una transicion entre muros, se genera un "EviRefElemen", cuando se expande un evi, tambien, pero cuando se expande un evi,
+                                                    // tambien se realiza una transicion al muro donde se realiza la expansion del evi. Con lo que en ocasiones (cuando se expande un evi por ejemplo)
+                                                    //se generan dos "EviRefElemen". Para evitar esto, se utiliza esta variable que se pone a true cuando se solicita la expansion del evi y evita
+                                                    // que el transito al muro genere otro "EviRefElemen".
+                                                    // Cuando la transicion al muro finaliza, la variable se vuelve a poner a cero para permitir la generacion de "EviRefElemen" en futuros transitos
+                                                    // true : el transito de muro NO debe generar "EviRefElemen"
+                                                    // false : el transito de muro SI debe generar "EviRefElemen"
 
     public long ordinal_de_identificador_unico;  // Este ordinal se utiliza para generar identificadores unicos en todo el KEE. Cada vez que se utiliza, debe incrementarse (antes de usarlo)
 
@@ -1546,11 +1541,11 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         giroOrientacionTelones = Quaternion.Euler(0f, 0f, 0f);
 
 
-        // /////////////////////////////////////////
-        // /////////////////////////////////////////
-        // Para el MURO DE USUARIO
-        // La distancia del muro de usuario al usuario
-        distanciaMuroUsuario = new Vector3(0.0f, 0.0f, distancia_z_MuroUsuario);
+    // /////////////////////////////////////////
+    // /////////////////////////////////////////
+    // Para el MURO DE USUARIO
+    // La distancia del muro de usuario al usuario
+    distanciaMuroUsuario = new Vector3(0.0f, 0.0f, distancia_z_MuroUsuario);
         // Las dimensiones del muro de usuario
         escala_x_MuroUsuario = escalaGeneralMuroUsuario; 
         escala_y_MuroUsuario = escalaGeneralMuroUsuario / ratio_dimensiones_Pantalla;
@@ -1587,8 +1582,6 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         // numeros de botones
         NumBtn_BtnMenu_N1_1_Gereral_CtrlInterfaz = 6;
         NumBtn_BtnMenu_N1_1_Gereral_Escena = 4;
-        // Nicolas Merino Ramirez
-        // modificado
         NumBtn_BtnMenu_N1_1_Gereral_Herramientas = 4;
         NumBtn_BtnMenu_N1_1_General_Salir = 0;
 
@@ -1680,15 +1673,15 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         escala_BtnMenu_N2_Herramientas = new Vector3(escalaGeneral_N_1_x * NumBtn_BtnMenu_N1_1_Gereral_Herramientas, escalaGeneral_N_1_y, 1f);
 
         // Para eol boton de acceso al evi de busqueda "BtnMenu_N2_1_Herramientas_buscador"
-        posicion_BtnMenu_N2_1_Herramientas_buscador = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 0f, 0f);
+        posicion_BtnMenu_N2_1_Herramientas_buscador = new Vector3(1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas, 0f, 0f);
         escala_BtnMenu_N2_1_Herramientas_buscador = new Vector3(((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), factorReduccion01, 1f);
         escala_BtnMenu_N2_1_Herramientas_buscador_Activado = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 1f, 1f);
         // Para eol boton de acceso a la mochila "BtnMenu_N2_1_Herramientas_mochila"
-        posicion_BtnMenu_N2_1_Herramientas_mochila = new Vector3((0f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 0f, 0f);
+        posicion_BtnMenu_N2_1_Herramientas_mochila = new Vector3(0f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas, 0f, 0f);
         escala_BtnMenu_N2_1_Herramientas_mochila = new Vector3(((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), factorReduccion01, 1f);
         escala_BtnMenu_N2_1_Herramientas_mochila_Activado = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 1f, 1f);
         // Para eol boton de acceso a herramientas "BtnMenu_N2_1_CtrlInterfaz_audio"
-        posicion_BtnMenu_N2_1_Herramientas_agentes = new Vector3((-1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 0f, 0f);
+        posicion_BtnMenu_N2_1_Herramientas_agentes = new Vector3(-1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas, 0f, 0f);
         escala_BtnMenu_N2_1_Herramientas_agentes = new Vector3(((1f - factorReduccion01) / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), factorReduccion01, 1f);
         escala_BtnMenu_N2_1_Herramientas_agentes_Activado = new Vector3((1f / NumBtn_BtnMenu_N1_1_Gereral_Herramientas), 1f, 1f);
 
@@ -1717,11 +1710,23 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         rotacion_BtnMenu_N2_1_Herramientas_MigaPan = new Quaternion(0, 180, 0, 0);
 
 
-        /// /////////////////    panera  ////////////////////////////////////////////////////
+        /// /////////////////    panera inicio version MAFG  ////////////////////////////////////////////////////
+        /// inicio version MAFG
+        ///       escala_x_panera = 1f/3f; // El boton es 1/5 del la escala del muro si la escala es 5, el muro es de 10x10, y el boton es uno
+        ///      escala_y_panera = 1f / 10f; // igual que en x
+        ///        escala_z_panera = 1f;  // el muro es un cubo casi plano, solo tiene un poco de profundidad en y, para ajustar los colliders
+        ///        escala_panera = new Vector3(escala_x_panera, escala_y_panera, escala_z_panera);
+        /// Posicion de los botones de nmivel 1 
+        ///        posicion_x_panera = (-0.5f + (escala_x_panera * 1f/2f));  // Para que quede en la esquina pero fuera
+        ///        posicion_y_panera = (-0.5f + (escala_y_panera * 1f/2f)); // es negativo porque va haci abajo
+        ///        posicion_z_panera = 0f;
+        ///        posicion_panera = new Vector3(posicion_x_panera, posicion_y_panera, posicion_z_panera);
+        /// fin version MAFG
         /// 
-        
-        escala_x_panera = 1f/3f;    // El boton es 1/3 del la escala del muro de usuario
-        escala_y_panera = 1f/10f;   // igual que en x
+
+
+        escala_x_panera = 1f / 3f;    // El boton es 1/3 del la escala del muro de usuario
+        escala_y_panera = 1f / 10f;   // igual que en x
         escala_z_panera = 1f;       // el muro es un cubo casi plano, solo tiene un poco de profundidad en y, para ajustar los colliders
         escala_panera = new Vector3(escala_x_panera, escala_y_panera, escala_z_panera);
 
@@ -1733,40 +1738,17 @@ public class ScriptDatosInterfaz : MonoBehaviour {
         //float panera_margen_porcentual_y = ((float)pixels_x_Pantalla * .001f) / 100;    // margen del 0.001% en y
 
         posicion_x_panera =
-            -1 * panera_posicion_central_pantalla_x     // - centro, para alinear a la izq
-            + (escala_x_panera * 1f / 2f)   // + la mitad en x de la panera, para que no quede media panera fuera de la pantalla
-            + 1f / 100f;    // + el margen 0.01%
+             -1 * panera_posicion_central_pantalla_x     // - centro, para alinear a la izq
+             + (escala_x_panera * 1f / 2f)   // + la mitad en x de la panera, para que no quede media panera fuera de la pantalla
+             + 1f / 100f;    // + el margen 0.01%
 
         posicion_y_panera =
-            -1 * panera_posicion_central_pantalla_y     // - centro, para alinear abajo
-            + (escala_y_panera * 1f / 2f)   // + la mitad en x de la panera, para que no quede media panera fuera de la pantalla
-            + 1f / 100f;    // + el margen 0.01%
+             -1 * panera_posicion_central_pantalla_y     // - centro, para alinear abajo
+             + (escala_y_panera * 1f / 2f)   // + la mitad en x de la panera, para que no quede media panera fuera de la pantalla
+             + 1f / 100f;    // + el margen 0.01%
 
         posicion_z_panera = 0f;
         posicion_panera = new Vector3(posicion_x_panera, posicion_y_panera, posicion_z_panera);
-
-        /*
-        posicion_x_panera =
-            -0.5f                           // -0.5 porque va hacia abajo
-            + (escala_x_panera * 1f / 2f)   // + la mitad en x de la panera, para que no quede media panera fuera de la pantalla
-            + 0.01f;                        // + el margen
-
-        posicion_y_panera = 
-            -0.5f                           // -0.5 porque va hacia abajo
-            + (escala_y_panera * 1f / 2f)   // + la mitad en x de la panera, para que no quede media panera fuera de la pantalla
-            + 0.01f;                        // + el margen
-        posicion_z_panera = 0f;
-        posicion_panera = new Vector3(posicion_x_panera, posicion_y_panera, posicion_z_panera);
-        */
-
-        Debug.Log("Desde ScriptDatosInterfaz 3 - obtenDimensionMonitor():\n" +
-                " - pixels_x_Pantalla = " + pixels_x_Pantalla + "\n" +
-                " - pixels_y_Pantalla = " + pixels_y_Pantalla + "\n\n" +
-                " - ratio_dimensiones_Pantalla = " + ratio_dimensiones_Pantalla + "\n\n" +
-                " - ancho_x_Pantalla = " + ancho_x_Pantalla + "\n" +
-                " - alto_y_Pantalla = " + alto_y_Pantalla + "\n\n" +
-                " - dimensionRefBaseEnPixels = " + dimensionRefBaseEnPixels + "\n" +
-                " - dimensionRefBaseEnEscala = " + dimensionRefBaseEnEscala);
 
         /// /////////////////    almacen_MuroUsuario  ////////////////////////////////////////////////////
         escala_x_almacen_MuroUsuario = escalaGeneral_N_1_x; // El boton es 1/5 del la escala del muro si la escala es 5, el muro es de 10x10, y el boton es uno

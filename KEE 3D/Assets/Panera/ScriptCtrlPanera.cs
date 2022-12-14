@@ -27,7 +27,7 @@ public class ScriptCtrlPanera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Autor Nicolas Merino Ramirez
@@ -97,7 +97,7 @@ public class ScriptCtrlPanera : MonoBehaviour
 
         // Si el elemento referenciado esta en las migas, se eliminan los que van detras
         bool repetido = esta_el_elemento_referenciado_en_las_migas(evi);
-        
+
         // Si las migas de pan NO contienen el nuevo elemento, se annade
         if (repetido == false)
         {
@@ -129,9 +129,9 @@ public class ScriptCtrlPanera : MonoBehaviour
     private void redimensionar_Evi(GameObject evi)
     {
         // pongo a los elementos en el espacio reservado a la panera
-        
+
         // Pongo la rotacion a 0, porque daba problema a la hora de mostar
-        evi.transform.localRotation = new Quaternion(0f,0f,0f,0f);
+        evi.transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
 
         // /////////////////////////////////////////////////////
         // ESCALA       del     EVI
@@ -157,16 +157,17 @@ public class ScriptCtrlPanera : MonoBehaviour
         // pongo el evi en la panera, pero en el eje x lo muevo ".12f" para crear una separacion
         evi.transform.localPosition = new Vector3
         (
-            - .5f       // Lo pone a la izquierda de la panera
-            + evi.transform.localScale.x * 1f/2f    // Evita que la mitad del primer Evi quede fuera
-            // Sumo el espacio que ocupa un Evi * el Numero de evis -1
+            -.5f       // Lo pone a la izquierda de la panera
+            + evi.transform.localScale.x * 1f / 2f    // Evita que la mitad del primer Evi quede fuera
+                                                      // Sumo el espacio que ocupa un Evi * el Numero de evis -1
             + (this.List_BreadcrumbsTrails.Count - 1f) * evi.transform.localScale.x             // Pone los Evis consecutivos
-            + (this.List_BreadcrumbsTrails.Count - 1f) * evi.transform.localScale.x * 1f/2f     // Añade espacio entre evis
+            + (this.List_BreadcrumbsTrails.Count - 1f) * evi.transform.localScale.x * 1f / 2f     // Añade espacio entre evis
             ,
             0f, // Centrar en el eje y
-            1f  // Para que no se distorsionen los botones
+            -0.1f // Para que no se distorsionen los botones
         );
 
+        Debug.Log("metodo: redimensionar_Evi ->  ");
     }
 
     // Autor Nicolas Merino Ramirez
@@ -187,7 +188,6 @@ public class ScriptCtrlPanera : MonoBehaviour
 
         foreach (GameObject elemento in List_BreadcrumbsTrails)
         {
-            Debug.Log("metodo:  ->esta_el_elemento_referenciado_en_las_migas\n- foreach - elemento anterior " + anterior?.name);
 
             // Si el original' de la referencia esta en las migas de pan, devuelvo el true
             //
@@ -202,7 +202,7 @@ public class ScriptCtrlPanera : MonoBehaviour
                 Debug.Log("metodo:  ->  esta_el_elemento_referenciado_en_las_migas\n" + "2 evis iguales en las migas (muros)");
                 Debug.Log("metodo:  ->  esta_el_elemento_referenciado_en_las_migas\n" + "Id a buscar en " + elemento.GetComponent<ScriptDatosElemenItf>().idElementIntf + " en la panera");
 
-                eliminar_Migas( 1 + 
+                eliminar_Migas(1 +
                     List_BreadcrumbsTrails.IndexOf(
                         buscar_Evi_En_Panera_By_ID
                         (
@@ -211,7 +211,7 @@ public class ScriptCtrlPanera : MonoBehaviour
                     )
                 );
                 return true;
-            }
+            }/*
             // el id de la referencia orinal del evi == al id del padre del evi orinal de la miga de pan
             //      para comprobar si cuando vamos hacia atras, el evi y el muro
             //
@@ -234,7 +234,7 @@ public class ScriptCtrlPanera : MonoBehaviour
                     )
                 );
                 return true;
-            }
+            }*/
             // Explicacion del if
             //      - Saco el ID de elemento de interfaz al que hace referencia el evi que entra
             //      - Saco el id del muro donde se abre el concepto,... que aparece en la miga de pan
@@ -243,6 +243,8 @@ public class ScriptCtrlPanera : MonoBehaviour
                 elemento.transform.Find("ContenedorDeEvi_01").transform.Find("EviRefElemen(Clone)").gameObject.GetComponent<SctCtrlEviRefElemen>().migaPan_MuroDestino.GetComponent<ScriptDatosElemenItf>().idElementIntf
                 )
             {
+                Debug.Log("metodo:  ->  esta_el_elemento_referenciado_en_las_migas\n" + "Muro destino donde se ha abierto la miga de pan");
+
                 // 1+, porque -> el muro que viene es hijo de un elemento de la panera, con lo que abria que borrar hasta dicho elemento (sin incluirlo)
                 eliminar_Migas(1 +
                     List_BreadcrumbsTrails.IndexOf(
@@ -252,7 +254,6 @@ public class ScriptCtrlPanera : MonoBehaviour
                         )
                     )
                 );
-
                 return true;
             }
             // Caso de que sea un evi de "Instancia"
@@ -305,7 +306,7 @@ public class ScriptCtrlPanera : MonoBehaviour
             eliminar.GetComponent<ScriptDatosElemenItf>().eliminaElemIntf();
         }*/
 
-        for(int i = this.List_BreadcrumbsTrails.Count -1; i >= posicion_evi; i--)
+        for (int i = this.List_BreadcrumbsTrails.Count - 1; i >= posicion_evi; i--)
         {
             // Lo pongo en un elem auxiliar puesto que lo tengo que eliminar de la lista
             GameObject eliminar = this.List_BreadcrumbsTrails[i];

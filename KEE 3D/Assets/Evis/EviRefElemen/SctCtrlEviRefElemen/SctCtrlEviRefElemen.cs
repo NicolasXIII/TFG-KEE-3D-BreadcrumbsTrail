@@ -87,7 +87,7 @@ public class SctCtrlEviRefElemen : MonoBehaviour
     public static string estOpCont_listo = "listo";
 
     // Autor Nicolas Merino Ramirez
-    // Fecha 1/12/2022
+    // Fecha 2022/12/01
     // Descripccion:
     //      Con este atributo se pretende hacer referencia al muro donde se va a abrir en el concepto, instancia,...
     public GameObject migaPan_MuroDestino;
@@ -346,6 +346,74 @@ public class SctCtrlEviRefElemen : MonoBehaviour
 
 
 
+
+    /// <summary>
+    /// /////////////////////////////////////////////////////////////////
+    /// Metodo : clonarEviDeReferenciaAElmentoDeInterfaz
+    ///     Este metodo genera un nuevo evi de referencia a interfaz, clonando el a este (this).
+    /// Autor : Miguel Angel Fernandez Graciani
+    /// Fecha creacion : 2022-11-19
+    /// Ultima modificacion :
+    /// Variables de entrada :
+    ///         - GameObject destino : (normalmente el muro activo) es la objeto donde se colocara el nuevo evi de referencia a elemento de interfaz recien creado
+    /// Variables de salida :
+    ///         - No devuelve nada
+    /// Observaciones:
+    ///         - El evi de referencia a elemento de interfaz que se genera es un clon de este, pero OJOOO, hay que cambiarle los
+    ///         identificadores de elemento de interfaz a todos sus gameobget, para que no haya colisiones
+    /// </summary>
+    public void clonarEviDeReferenciaAElmentoDeInterfaz(GameObject obj_raiz_a_clonar, GameObject destino)
+    {
+        string id_obj_raiz_a_clonar = obj_raiz_a_clonar.GetComponent<ScriptCtrlBaseDeEvi>().name;
+        if (DatosGlobal.niveDebug > 50)
+        { Debug.Log("Entro enSctCtrlEviRefElemen => clonarEviDeReferenciaAElmentoDeInterfaz. Con id_obj_raiz_a_clonar = "+ id_obj_raiz_a_clonar); }
+
+
+        GameObject nuevo_obj_generado = Instantiate(obj_raiz_a_clonar);
+
+        string id_nuevo_obj_generado = nuevo_obj_generado.GetComponent<ScriptCtrlBaseDeEvi>().name;
+        if (DatosGlobal.niveDebug > 50)
+        { Debug.Log("Entro enSctCtrlEviRefElemen => clonarEviDeReferenciaAElmentoDeInterfaz. Con id_nuevo_obj_generado = " + id_nuevo_obj_generado); }
+
+        // Ya hemos generado un clon del evi de referencia a elemento intf. Haora tenemos que configurarlo como corresponde:
+        // Primero le asignamos sus identificadores deltro de la secuencia normal de identificadores en la interfaz
+        // Al parecer, cuando instanciamos un gameobject de la escena, Unity hace otro game object, que es copia del primero, pero solo ejecuta el awake del gameobcet que clona
+        // sin llegar a ejecutar el metdo start, ni ningun otro awake ni star de ninguno de los hijos de este. Por lo que los identificadores, quedan con el mismo id que el objeto
+        // original.Nosotros tenemos que cambiar estos ids, asi como sus referencias en la gerarquia KEE(que no es de unity), para que quede configurado adecuadamente(MAFG 2022 - 11 - 23)
+
+        // idElementIntf;  // Es el identificador unico de todos los elementos de la interzfaz. Se consigue desde "generaIdElementIntf()"
+        //   public string tipoElementIntf;      // identifica el tipo de elemento de interfaz al que corresponde cada elemento de interfaz
+        //   public int idElementEnTipo;  // Es el identificador unico de todos los elementos de un mismo tipo. Se consigue desde "generaIdElementEnTipo()"
+        //   public string subTipoElementIntf;   // identifica el tipo de elemento de interfaz al que corresponde cada elemento de interfaz dentro de un tipo
+
+
+        // Ahora lo hacemos hijo del muro activo
+        nuevo_obj_generado.transform.SetParent(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().muro_Activo.transform);
+
+        // Configuramos ahora sus ahijamientos y padrinos de forma adecuada
+
+
+
+
+
+
+
+        /*
+         * 
+         * 
+        ************* voy por aqui tambien
+
+
+                                // Primero localizamos el game object al que hace referencia, para que el nuevo evi haga referencia a este
+                                GameObject elemento_referenciado = objeto_Evi_Raiz;
+        // Ahora generamos el nuevo evi de referencia a elemento de interfaz con los datos pertinentes
+        GameObject obj_clon_deReferenciaAElemento = ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(objeto_Evi_Raiz.transform.gameObject, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().muro_Activo);
+        // Hemos generado un evi de referencia a elemento, que usa la ayuda a interfaz del elemento referenciado, PERO LOS DATOS DEL ELEMENTO REFERENCIADO NO HAN SIDO ASIGNADOS
+        // copiamos ahora los datos del elemento referenciado desde el evi original a la copia
+        */
+
+
+    }  // FIn de - public void atiendeMariLlanos(GameObject solicitudAAtender)
 
     /// <summary>
     /// /////////////////////////////////////////////////////////////////

@@ -105,11 +105,23 @@ public class ScriptGestionaEscena : MonoBehaviour {
 
     int numeroDeUpdate = 0;
 
+
+    // Generamos los parametros globales para generar los evis en el muro activo
+    string cualificador_DeEvi;
+    string ordinalConf_DeEvi;
+    DateTime ultiModConf_DeEvi;
+
     void Awake()
     {
         // Asignamos objetos
         ctrlInterfaz = GameObject.FindWithTag("ctrlInterfaz");
         Usuario = GameObject.FindWithTag("Usuario");
+
+        // Asignamos variables
+        cualificador_DeEvi = "0";
+        ordinalConf_DeEvi = "0";
+        ultiModConf_DeEvi = new DateTime(0);
+
 
         // ////////////////////////////////////////
         // ////////////////////////////////////////
@@ -352,10 +364,22 @@ public class ScriptGestionaEscena : MonoBehaviour {
 
     } // Fin de - void Start () {
 
-    // Update is called once per frame
+    /// <summary>
+    /// //////////////////////////////////////////////////////////////////////////////////////
+    ///    En esta escena, se va preparando la escena, en los primeros cuadros para configurar el estado de la misma
+    /// Autor : 	Miguel Angel Fernandez Graciani
+    /// Fecha :	2020-03-13 (mas o menos)
+    /// Ultima modificacion :
+    ///     - 2022-11-23, para incluir el muro raiz, donde esta la configuracion (lista de idiomas, abito global, etc...)
+    /// Observaciones :
+    /// 	- OJO se va generando en varios cuadros para que quede mas claro. El usuario no lo nota
+    /// 	
+    /// </summary>
+
     void Update () {
 
         ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().numDeFrame++;
+
 
         // Hay cosas que si se hacen antes del primer update, se mezclan de forma rara por la secuencia que lleva Unity al ir arrncando los objetos
         // por eso, en el primer frame cuando ya se han generado todos los objetos iniciales, ordenamos los parametros y asignamos algunos roles de forma adecuada
@@ -376,25 +400,98 @@ public class ScriptGestionaEscena : MonoBehaviour {
 
         }
 
+        // Generamos ahora los evis asociados al muro raiz, donde esta la configuracion (lista de idiomas, abito global, etc...)
+        if (ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().numDeFrame == 3)
+        {
+
+            GameObject elemDestino_DeEvi = GetComponent<ScriptDatosInterfaz>().muro_Activo; // Los evis iran a la tramoya 
+
+            // Generamos un evi de "gen_interfazKee" de "dks_klw"
+            string key_DeEvi = "gen_listaDeIdiomasDeInterfaz";
+            string host_DeEvi = ConceptosConocidos.gen_dks_klw_host;
+            //           GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_español";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+            
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_ingles";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_chino_mandarin";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+            
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_hindi";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+            
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_bengali";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_frances";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_ruso";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            //            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_portugues";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            //            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_urdu";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            //            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_aleman";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            //            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+ 
+        }
+
         // SI estamos en pruebas y hace ya un ratito que hemos empezado, preparamos la interfaz para que sea mas comoda durante el desarrollo
         //      1.) Generamos algunos evis y los cargamos en el muro de inicio para que no haya que ir a por ellos cada vez que arrancamos.
         //              (ire modificando estos segun elmodulo que este desarrollanado
         if ((ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().numDeFrame == 5) & (DatosGlobal.niveDebug > 50))
         {
-            // Generamos los parametros globales para generar los evis en el muro activo
-            string cualificador_DeEvi = "0";
-            string ordinalConf_DeEvi = "0";
-            DateTime ultiModConf_DeEvi = new DateTime(0);
-            // Para obtener el objeto de telon donde van a ir los evis en pruebas
-            // OJOOOO esto puede hacerse mientras no tengamos mas que un telon. POr ahora lo hacemos asi para simplificar (PENDIENTE MAFG 2022-01-01)
+            // Generamos un primer muro, Siguiente al muro raiz.
+            // El muro raiz es para la configuracion de la interfaz. 
+            // Este primer muro que generamos es para iniciar la navegacion
+            ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().rama_Activo.GetComponent<ScriptCtrlRama>().generaMuro(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().muro_Activo, ScriptDatosElemenItf.modoElemItf_navegacion);
+
+
             GameObject elemDestino_DeEvi = GetComponent<ScriptDatosInterfaz>().muro_Activo; // Los evis iran a la tramoya 
 
             // Vamos generando cada evi de los que nos hacen falta
 
-            // Generamos un evi de "gen_recAyuIntf" de "dks_klw"
-            string key_DeEvi = "gen_BuscadorKee_por_key_host";
+            // //////////////////////////////////////////
+            // //////////////////////////////////////////
+            // // Conceptos de "dks_klw"
+
+            // Generamos un evi de "gen_interfazKee" de "dks_klw"
+            string key_DeEvi = "gen_interfazKee";
             string host_DeEvi = ConceptosConocidos.gen_dks_klw_host;
-//            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+ //           GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_recAyuIntf" de "dks_klw"
+            key_DeEvi = "gen_BuscadorKee_por_key_host";
+            host_DeEvi = ConceptosConocidos.gen_dks_klw_host;
+            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
 
             // Generamos un evi de "gen_ParaConceptoNuevo" de "dks_klw"
             key_DeEvi = "gen_ParaConceptoNuevo";
@@ -404,21 +501,21 @@ public class ScriptGestionaEscena : MonoBehaviour {
             // Generamos un evi de "gen_recAyuIntf" de "dks_klw"
             key_DeEvi = "gen_recAyuIntf";
             host_DeEvi = ConceptosConocidos.gen_dks_klw_host;
-//            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+ //           GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
 
             // Generamos un evi de "gen_ayudaInterfaz" de "dks_klw"
-//            key_DeEvi = "gen_ayudaInterfaz";
-//            host_DeEvi = ConceptosConocidos.gen_dks_klw_host;
-//            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
-
-            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
-            key_DeEvi = "gen_idioma_español";
-            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
-//            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+            key_DeEvi = "gen_ayudaInterfaz";
+            host_DeEvi = ConceptosConocidos.gen_dks_klw_host;
+            //           GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
 
             // Generamos un evi de "gen_tipoDeSinTechoTextoPlano" de "dks_klw"
-//            key_DeEvi = "gen_tipoDeSinTechoTextoPlano";
-//            host_DeEvi = ConceptosConocidos.gen_dks_klw_host;
+            key_DeEvi = "gen_tipoDeSinTechoTextoPlano";
+            host_DeEvi = ConceptosConocidos.gen_dks_klw_host;
+            //            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_tipoDeSinTecho_FicheroGenerico" de "dks_klw"
+            key_DeEvi = "gen_tipoDeSinTecho_FicheroGenerico";
+            host_DeEvi = ConceptosConocidos.gen_dks_klw_host;
 //            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
 
             // Generamos un evi de "gen_tipoDeSinTecho_FicheroAudio" de "dks_klw"
@@ -429,12 +526,45 @@ public class ScriptGestionaEscena : MonoBehaviour {
             // Generamos un evi de "gen_tipoDeSinTecho_FicheroImagen" de "dks_klw"
             key_DeEvi = "gen_tipoDeSinTecho_FicheroImagen";
             host_DeEvi = ConceptosConocidos.gen_dks_klw_host;
+            //            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // //////////////////////////////////////////
+            // //////////////////////////////////////////
+            // // Conceptos de "dks_Generic"
+
+            // Generamos un evi de "gen_imagen" de "dks_Generic"
+            key_DeEvi = "gen_imagen";
+            host_DeEvi = ConceptosConocidos.gen_dks_Generic_host;
+            //           GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_observaciones" de "dks_Generic"
+            key_DeEvi = "gen_observaciones";
+            host_DeEvi = ConceptosConocidos.gen_dks_Generic_host;
+            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_resultado" de "dks_Generic"
+            key_DeEvi = "gen_resultado";
+            host_DeEvi = ConceptosConocidos.gen_dks_Generic_host;
 //            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // Generamos un evi de "gen_ok" de "dks_Generic"
+            key_DeEvi = "gen_ok";
+            host_DeEvi = ConceptosConocidos.gen_dks_Generic_host;
+//            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // //////////////////////////////////////////
+            // //////////////////////////////////////////
+            // // Conceptos de "dks_desarrollo"
+
+            // Generamos un evi de "gen_miki" de "dks_desarrollo"
+            key_DeEvi = "gen_miki";
+            host_DeEvi = ConceptosConocidos.gen_dks_desarrollo_host;
+ //           GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
 
             // Generamos un evi de "gen_casa" de "dks_desarrollo"
             key_DeEvi = "gen_casa";
             host_DeEvi = ConceptosConocidos.gen_dks_desarrollo_host;
-            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+//            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
 
             // Generamos un evi de "gen_datosLudicos" de "dks_desarrollo"
             key_DeEvi = "gen_datosLudicos";
@@ -452,16 +582,21 @@ public class ScriptGestionaEscena : MonoBehaviour {
             //            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
 
 
+            // //////////////////////////////////////////
+            // // Conceptos de "dks_Languajes"
+
+            // Generamos un evi de "gen_idioma_eapañol" de "dks_Languajes"
+            key_DeEvi = "gen_idioma_español";
+            host_DeEvi = ConceptosConocidos.gen_dks_Languajes_host;
+            //            GetComponent<ScriptLibGestorEvis>().generaEviFractalRef(key_DeEvi, host_DeEvi, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
+
+            // ///////////////////////////////////////////////////////
             // Asignamos a las variables de este game object
             string tipoDato_key = "gen_tipoDeSinTechoTextoPlano";
             string tipoDato_host = ConceptosConocidos.gen_dks_klw_host;
+            //            GetComponent<ScriptLibGestorEvis>().generaEviSinTecho_sinDOM(tipoDato_key, tipoDato_host, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
 
-//            GetComponent<ScriptLibGestorEvis>().generaEviSinTecho_sinDOM(tipoDato_key, tipoDato_host, cualificador_DeEvi, ordinalConf_DeEvi, ultiModConf_DeEvi, elemDestino_DeEvi);
-
-
-
-        }
-
+        } // FIn de - if ((ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().numDeFrame == 5) & (DatosGlobal.niveDebug > 50))
 
     }  // Fin de - void Update () {
 

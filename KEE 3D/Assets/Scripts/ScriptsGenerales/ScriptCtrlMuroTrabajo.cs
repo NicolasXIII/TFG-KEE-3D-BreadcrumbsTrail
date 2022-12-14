@@ -145,8 +145,9 @@ public class ScriptCtrlMuroTrabajo : MonoBehaviour {
                 {
                     if (hijo.gameObject.GetComponent<ScriptDatosElemenItf>().tipoElementIntf == ScriptDatosElemenItf.tipoElemItf_evi)  // Si el hijo es una rama 
                     {
-                        if (DatosGlobal.niveDebug > 1000){ Debug.Log("Estoy en ScriptCtrlMuroTrabajo => Update 141 . desde dentro del foreach en el hijo de nombre  = " + hijo.name); }
-                        ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().gestionaInfoCanvas(hijo.gameObject);
+                    if (DatosGlobal.niveDebug > 1000)
+                    { Debug.Log("Estoy en ScriptCtrlMuroTrabajo => Update 141 . desde dentro del foreach en el hijo de nombre  = " + hijo.name); }
+                    ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().gestionaInfoCanvas(hijo.gameObject);
                     } // FIn de - if (hijo.transform.parent == GetComponent<ScriptDatosInterfaz>().CanvasGeneral)
                 }  // Fin de - foreach (GameObject hijo in eviBase.transform.GetComponent<ScriptDatosElemenItf>().listaDeHijos)
 

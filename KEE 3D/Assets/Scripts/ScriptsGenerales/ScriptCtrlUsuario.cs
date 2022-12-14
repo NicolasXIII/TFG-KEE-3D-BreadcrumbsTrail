@@ -166,10 +166,9 @@ public class ScriptCtrlUsuario : MonoBehaviour {
                     // OJOOO, cualquier transito generara un evi de referencia a elemento de interfaz, esto quiere decir que se generaran incluso en los casos de final de 
                     // carrera, en los que se vuelve al mismo muro donde estabamos, por lo que el gestor de miga de pan, tendra que eliminar aquellos evis de referencia a 
                     // elemento que refieran el mismo elemento que la ultima miga de pan encadenada
-                    ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(
-                        ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().muro_Activo, 
-                        ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera
-                    );
+                    // Para pruebas 2022-11-19 
+                    ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().muro_Activo, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
+//                    ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviRefElemen(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().muro_Activo, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().muro_Activo);
                 }
                 // Indicamos ahora al sistema que ha finalizado la transicion para que otros elementos lo sepan y actuen en consecuencia
                 ctrlInterfaz.GetComponent<ScriptGestorTransitos>().finalizoTransito(gameObject, idTransicionGeneral);

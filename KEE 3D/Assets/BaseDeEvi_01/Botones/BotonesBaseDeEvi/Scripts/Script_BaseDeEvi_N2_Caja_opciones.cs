@@ -259,6 +259,8 @@ public class Script_BaseDeEvi_N2_Caja_opciones : MonoBehaviour {
     /// Autor : Miguel Angel Fernandez Graciani
     /// Fecha creacion : 2021-01-30
     /// Ultima modificacion :
+    ///     - 2022-11-18. He incluido la funcionalidad de los botones asociada a los evis de referencia a elemento de interfaz mediante las lineas (son varias)
+    ///                         else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_EviRefElemen)
     /// Variables de entrada :
     /// Variables de salida :
     ///     No devuelve nada, solo obtiene el valor de los datos estandar del concepto
@@ -332,6 +334,17 @@ public class Script_BaseDeEvi_N2_Caja_opciones : MonoBehaviour {
                 Btn_Evi_op_Instanciar.SetActive(true);  // OJO : instancia; abre un nuevo buscador, del mismo tipo pero vacio
                 Btn_Evi_op_Eliminar.SetActive(true);
             }  // Fin de - else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_buscador_00)
+            else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_EviRefElemen)
+            {
+                // 1.5.) subTipoElemItf_evi_buscador_00
+                Btn_Evi_op_Expandir.SetActive(true);  // OJO : expande; permite acceder a los filtros y a los resultados
+                Btn_Evi_op_Editar.SetActive(true);  // OJO : edita; permite el acceso al manejo de filtros, indexaciones de soluciones, etc
+                Btn_Evi_op_EnEdicionGrabar.SetActive(false);  // Se activara al entrar en edicion
+                Btn_Evi_op_EnEdicionSalir.SetActive(false);  // Se activara al entrar en edicion
+                Btn_Evi_op_Clonar.SetActive(true);  // OJO : clona; genera un buscador igual que el actual
+                Btn_Evi_op_Instanciar.SetActive(false);  // OJO : instancia; abre un nuevo buscador, del mismo tipo pero vacio
+                Btn_Evi_op_Eliminar.SetActive(true);
+            }  // Fin de - else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_EviRefElemen)
             else
             {
                 // 1.6.) subTipoElemItf_evi_lista_00 (YA veremos PENDIENTE MAFG 2021-07-04)
@@ -393,10 +406,21 @@ public class Script_BaseDeEvi_N2_Caja_opciones : MonoBehaviour {
                 Btn_Evi_op_Instanciar.SetActive(true);  // OJO : si se instancia genera un nuevo sin techo, vacio, pero con el mismo tipo de dato que el original
                 Btn_Evi_op_Eliminar.SetActive(true);
             }  // Fin de - else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_baseSinTecho_00)
-            // else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_buscador_00)
-            // {
-                // 2.5.) subTipoElemItf_evi_buscador_00; No existe en el modo edicion
-            // }  // Fin de - else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_buscador_00)
+            else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_EviRefElemen)
+            {
+                // 1.5.) subTipoElemItf_evi_buscador_00
+                Btn_Evi_op_Expandir.SetActive(true);  // OJO : expande; permite acceder a los filtros y a los resultados
+                Btn_Evi_op_Editar.SetActive(true);  // OJO : edita; permite el acceso al manejo de filtros, indexaciones de soluciones, etc
+                Btn_Evi_op_EnEdicionGrabar.SetActive(false);  // Se activara al entrar en edicion
+                Btn_Evi_op_EnEdicionSalir.SetActive(false);  // Se activara al entrar en edicion
+                Btn_Evi_op_Clonar.SetActive(true);  // OJO : clona; genera un buscador igual que el actual
+                Btn_Evi_op_Instanciar.SetActive(false);  // OJO : instancia; abre un nuevo buscador, del mismo tipo pero vacio
+                Btn_Evi_op_Eliminar.SetActive(true);
+            }  // Fin de - else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_EviRefElemen)
+               // else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_buscador_00)
+               // {
+               // 2.5.) subTipoElemItf_evi_buscador_00; No existe en el modo edicion
+               // }  // Fin de - else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_buscador_00)
             else
             {
                 ///                        2.5.) subTipoElemItf_evi_buscador_00 (el evi de busqueda no existe en modo edicion)

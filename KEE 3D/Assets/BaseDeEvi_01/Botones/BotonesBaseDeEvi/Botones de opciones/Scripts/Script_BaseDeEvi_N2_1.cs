@@ -241,6 +241,15 @@ public class Script_BaseDeEvi_N2_1 : MonoBehaviour {
                                 // - Llamamos al generador de evi fractal de referencia  "generaEviFractalRef()"
                                 ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().generaEviSinTecho(clon_elemDestino, este_domPropio, este_manejadorEspNomb, este_nodoEnlace);
                             }
+                            else if (objeto_Evi_Raiz.GetComponent<ScriptDatosElemenItf>().subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_EviRefElemen)
+                            {
+                                // - Generamos una copia del evi de referencia al elemento de interfaz y lo colocamos en el muro activo
+                                //  suponemos que aunque este en la panera, cuando duplicamos un evi de referencia a elemento de interfaz, no lo queremos en la panera,
+                                //  si no para colocarlo en la tramoya o en otro sitio, con el fin de acceder a la referencia cuando queramos
+                                // OJO, lo de "transform.GetChild(0).transform.GetChild(0)" no es elegante. Habria que ponerlo como dios manda PENDIENTE MAFG 2022-11-23
+                                objeto_Evi_Raiz.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SctCtrlEviRefElemen>().clonarEviDeReferenciaAElmentoDeInterfaz(objeto_Evi_Raiz, ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().muro_Activo);
+ 
+                            }
                             else
                             {
                                 if (DatosGlobal.niveDebug > 100)

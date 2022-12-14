@@ -19,7 +19,10 @@ public class ScriptCtrlMuroUsuario : MonoBehaviour {
 	public GameObject ctrlInterfaz;
 	public GameObject Usuario;
 
-	void Start ()
+    public GameObject panera;
+
+
+    void Start ()
 	{	
 		// Asignamos objetos
 		ctrlInterfaz = GameObject.FindWithTag("ctrlInterfaz");
@@ -155,7 +158,7 @@ public class ScriptCtrlMuroUsuario : MonoBehaviour {
 
 
         // /////////////////    panera  Nicolas Merino Ramirez(2022-10-27)/////////
-        GameObject panera = Instantiate(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
+        panera = Instantiate(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
         panera.transform.SetParent(this.transform);
 
 //        panera.transform.localPosition = new Vector3(-22f, -20f, -15f);

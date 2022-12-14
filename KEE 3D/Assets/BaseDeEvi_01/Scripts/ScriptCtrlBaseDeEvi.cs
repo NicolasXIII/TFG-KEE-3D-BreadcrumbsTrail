@@ -829,15 +829,8 @@ public class ScriptCtrlBaseDeEvi : MonoBehaviour {
                                                //   1.2.2.) subTipoElementIntf = subTipoElemItf_evi_baseInstFractal  => Para los evis que muestran una instancia. En este caso la ayuda a interfaz muestra la ayuda a interfaz del concepto instanciado
                                                //   1.2.3.) subTipoElementIntf = subTipoElemItf_evi_baseSinTecho_00  => Para los evis que muestran un sin techo. En este caso la ayuda a interfaz muestra la ayuda a interfaz del concepto asociado al tipo de datos del sin techo
 
-
-
 //        GetComponent<ScriptDatosElemenItf>().ponSubTipoElementIntf(ScriptDatosElemenItf.subTipoElemItf_evi_RefFractal);  // Ponemos a pelo que es un evi fractal para hacer la carga como procede
 //        GetComponent<ScriptDatosElemenItf>().ponSubTipoElementIntf(ScriptDatosElemenItf.subTipoElemItf_evi_baseRefFractal);  // Ponemos a pelo que es un evi fractal para hacer la carga como procede
-
-
-
-
-
 
         // ///////////////////////////////////////////////////////////////////////////
         // ///////////////////////////////////////////////////////////////////////////
@@ -894,7 +887,7 @@ public class ScriptCtrlBaseDeEvi : MonoBehaviour {
             else
             {
                 //                ctrlInterfaz.GetComponent<ScriptLibGestorEvis>().desarrollaFractal(EviBase, this.gameObject, KdlConcepto, nodo_E_eviFractal);
-                nodoDeInformacion = nodo_E_ContEnBaseDeEvi.FirstChild;
+                nodoDeInformacion = nodo_E_ContEnBaseDeEvi.FirstChild;  // Convenia ponerlo mas lelegante atendiendo al nombre del nodo (PENDIENTE MAFG 2022-11-26)
                 if (DatosGlobal.niveDebug > 50)
                 {
                     Debug.Log("Hola desde ScriptCtrlBaseDeEvi -  Desde domCargado - cargaDatosBaseDeEvi, intentamos cargar dato en un evi efimero con = " +
@@ -913,6 +906,7 @@ public class ScriptCtrlBaseDeEvi : MonoBehaviour {
             //           En este caso la ayuda a interfaz muestra la ayuda a interfaz del concepto instanciado
                     // El nodod de interes es el asociado a la instancia que esta en el evi "EviTipo_RefFractal_01" hijo de "ContenedorDeEvi_01" hojo de esta base de evi
             nodoDeInformacion = nodo_E_ContEnBaseDeEvi.FirstChild;  // Debemos enviar el nodo instancia "A", no el enlace "E"
+                                                                    // Convenia ponerlo mas lelegante atendiendo al nombre del nodo (PENDIENTE MAFG 2022-11-26)
         }
         else if (subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_baseSinTecho_00)
         {
@@ -920,6 +914,7 @@ public class ScriptCtrlBaseDeEvi : MonoBehaviour {
             //           En este caso la ayuda a interfaz muestra la ayuda a interfaz del concepto asociado al tipo de datos del sin techo
                     // El nodod de interes es el asociado al sin techo que esta en el evi "EviTipo_RefFractal_01" hijo de "ContenedorDeEvi_01" hojo de esta base de evi
             nodoDeInformacion = nodo_E_ContEnBaseDeEvi.FirstChild.FirstChild;  // Debemos enviar el nodo sin techo "Z", no el enlace "E"
+                                                                               // Convenia ponerlo mas lelegante atendiendo al nombre del nodo (PENDIENTE MAFG 2022-11-26)
         }
         else 
         {
@@ -1837,6 +1832,12 @@ public class ScriptCtrlBaseDeEvi : MonoBehaviour {
             int i = 0;
             foreach (GameObject hijo in muroDeRamaBaseDeEdicion.GetComponent<ScriptDatosElemenItf>().listaDeHijos)
             {
+                if (DatosGlobal.niveDebug > 50)
+                {
+                    Debug.Log(" Desde ScriptCtrlBaseDeEvi => edicion_ingertaDescripcion - inicio del ciclo del foreach con i = " + i
+                                + "\n Con subTipoElementIntf " + hijo.GetComponent<ScriptDatosElemenItf>().subTipoElementIntf);
+                }
+
                 // 5.1.) Para el caso de un evi SIN TECHO (subTipoElementIntf = subTipoElemItf_evi_baseSinTecho_00):
                 //        Ingertamos el elemento referencia correspòndiente(E => R) mediante "ingertaElementoReferencia"
                 //        - OJO recordamos que la referencia NO tiene descripcion (salvo en el DKS de origen), por lo que esta rama muere aqui
@@ -1900,7 +1901,19 @@ public class ScriptCtrlBaseDeEvi : MonoBehaviour {
                     resultadoDelIngerto = ctrlInterfaz.GetComponent<ScriptLibConceptosXml>().ingertaElementoReferencia(domKDL, elemento_D_recibido, key_hijo, host_hijo, cualificador_hijo, ordinal_hijo, fechUltMod_hijo);
                 }  // Fin de - else if ((hijo.GetComponent<ScriptDatosElemenItf>().subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_baseRefFractal) &
 
-                // 5.3.) Para el caso de un evi INSTANCIA (subTipoElementIntf = subTipoElemItf_evi_baseInstFractal)
+                // 5.3.) Para el caso de un evi REFERENCIA  a elemento de interfaz (subTipoElementIntf = subTipoElemItf_evi_baseRefFractal)
+                //        - No tenemos que ingertar nada, ya que los evis de referencia a elemento de interfaz, no son parte de la descripcion del concepto.
+                //              tan solo tenemos que borrarlo. OJO, el borrado de un evi de referencia a elemento debe hacerse con cuidado. este puede estar
+                //              referenciado como hijo de la panera, o en en otro muro, o en la tramoya... Por lo que para borrarlo hay que contar con todos sus 
+                //              progenitores logicos (nuestra gerarquia, esta en la que estamos) y como obgetos de juego (gerarquia de unity)
+                else if (hijo.GetComponent<ScriptDatosElemenItf>().subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_EviRefElemen)
+                {
+                    // NO HAY QUE HACER NADA. No lo borramos, ya lo borrara su padre cuando lo eliminen al eliminar el arbol de edicion
+                    // hijo.GetComponent<ScriptDatosElemenItf>().eliminaElemIntf();
+
+                }  // Fin de - else if (hijo.GetComponent<ScriptDatosElemenItf>().subTipoElementIntf == ScriptDatosElemenItf.subTipoElemItf_evi_EviRefElemen)
+
+                // 5.4.) Para el caso de un evi INSTANCIA (subTipoElementIntf = subTipoElemItf_evi_baseInstFractal)
                 //        Ingertamos el elemento instancia correspòndiente(E => A) mediante "ingertaElementoInstancia"
                 //        - OJO recordamos que los elementos instancia SI tienen descripcion, por lo que esta rama debe ingertar la descripcion de la instancia
                 //        recrsivamente hasta recorres toda la rama de descripcion de la instancia

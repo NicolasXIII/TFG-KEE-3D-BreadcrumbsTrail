@@ -1404,6 +1404,57 @@ public class ScriptLibConceptosXml : MonoBehaviour {
         }
     } // Fin de -  public string[] dameIdentificadorDeNodo(XmlDocument domKDL, XmlNode nodoElemento)
 
+    /// <summary>
+    /// ///////////////////////////////////////////////////////////////////////////////////////////////
+    ///   Metodos que ingerta la configuracion de acceso para cualquier solicitud a un KDL
+    /// Autor : 	Juan Ibañez Catalan
+    /// Fecha :	2022-11-24
+    /// Parametros de entrada :
+    ///      - XmlDocument domKDL : Dom del concepto general
+    ///      - XmlElement elemento_recibido : Nodo del que extraemos la informacion    
+    ///      - string ordinal : Es el ordinal de la configuracion del concepto, segun su evolucion cada modificacion lleva un ordinal consecutivo para identificarlas (del elemento F)
+    ///      - string ultimaModificacion : es la fecha de la ultima modificacion del concepto (en milisegundos de tiempo gregoriano de ese) (del elemento F)
+    /// Retorna : 
+    /// Observaciones :
+    /// </summary>
+
+    public void ingertaConfiguracionDeAcceso(XmlDocument domKDL, XmlElement elemento_D_gen_solicitudADks)
+    {
+        // Generar elemento de "gen_configuracionDeAcceso"
+
+        // Ingertar lista de idiomas de usuario
+ //       ingertaListaIdiomasUsuario(XmlDocument domKDL, XmlElement elemento_gen_configuracionDeAcceso);
+
+        // Ingertar identificacion de usuario
+
+        // Ingertar otros....
+
+    } // Fin de -  public string[] dameIdentificadorDeNodo(XmlDocument domKDL, XmlNode nodoElemento)
+
+    /// <summary>
+    /// ///////////////////////////////////////////////////////////////////////////////////////////////
+    ///   Metodos que ingerta la lista de idiomas de usuario en el nodo de configuracion de acceso para cualquier solicitud a un KDL
+    /// Autor : 	Juan Ibañez Catalan
+    /// Fecha :	2022-11-24
+    /// Parametros de entrada :
+    ///      - XmlDocument domKDL : Dom del concepto general
+    ///      - XmlElement elemento_recibido : Nodo del que extraemos la informacion    
+    ///      - string ordinal : Es el ordinal de la configuracion del concepto, segun su evolucion cada modificacion lleva un ordinal consecutivo para identificarlas (del elemento F)
+    ///      - string ultimaModificacion : es la fecha de la ultima modificacion del concepto (en milisegundos de tiempo gregoriano de ese) (del elemento F)
+    /// Retorna : 
+    /// Observaciones :
+    /// </summary>
+
+    public void ingertaListaIdiomasUsuario(XmlDocument domKDL, XmlElement elemento_recibido)
+    {
+        // Ingertar lista de idiomas de usuario
+
+        // Ingertar identificacion de usuario
+
+        // Ingertar otros....
+
+    } // Fin de -  public string[] dameIdentificadorDeNodo(XmlDocument domKDL, XmlNode nodoElemento)
+
 
     // ///////////////////////////////////////////////////////////////////////////////////////////////
     // ///////////////////////////////////////////////////////////////////////////////////////////////
