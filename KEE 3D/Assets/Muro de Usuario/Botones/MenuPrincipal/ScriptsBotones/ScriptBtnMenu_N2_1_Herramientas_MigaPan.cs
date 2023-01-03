@@ -54,14 +54,14 @@ public class ScriptBtnMenu_N2_1_Herramientas_MigaPan : MonoBehaviour
         // Pulsacion del boton derecho del raton
         //      GetMouseButtonDown solo se puede usar desde el update
         //      GetMouseButtonDown(0) es el click izquierdo
-   //     if (Input.GetMouseButtonDown(0))
-   //     {
-            // Bandera que permite mantener la escala_Activada del boton, cuando se clicka en el
-   //         click = !click;
+        //     if (Input.GetMouseButtonDown(0))
+        //     {
+        // Bandera que permite mantener la escala_Activada del boton, cuando se clicka en el
+        //         click = !click;
 
-            //panera.GetComponent<ScriptCtrlPanera>().activar_o_desactivar_Panera(click);
-   //         ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera.GetComponent<ScriptCtrlPanera>().activar_o_desactivar_Panera(click);
-   //     }
+        //panera.GetComponent<ScriptCtrlPanera>().activar_o_desactivar_Panera(click);
+        //         ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera.GetComponent<ScriptCtrlPanera>().activar_o_desactivar_Panera(click);
+        //     }
 
 
         if (enTriger)
@@ -94,6 +94,34 @@ public class ScriptBtnMenu_N2_1_Herramientas_MigaPan : MonoBehaviour
         }
     }
 
+    //private void OnMouseDown()
+    //{
+    //    // SI pulsamos el raton cuando estamos sobre el boton, activamos la panera
+    //    if (enTriger)
+    //    {
+            
+    //        if (!ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().gestionaEnPerRefracBotonMouse(quienDispara))
+    //        {
+    //            if (panera.activeSelf == false)
+    //            {
+    //                panera.gameObject.GetComponent<ScriptCtrlPanera>().activar_o_desactivar_Panera(true);
+    //            }
+    //            else
+    //            {
+    //                panera.GetComponent<ScriptCtrlPanera>().activar_o_desactivar_Panera(false);
+    //                this.transform.localScale = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().escala_BtnMenu_N2_1_Herramientas_MigaPan_Activado;
+    //            }
+    //        } // Fin de if (!ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().gestionaEnPerRefracBotonMouse(other.gameObject))
+    //    } // FIn de - if (enTriger)
+    //    else
+    //    {
+    //        if (panera.activeSelf == false)
+    //        {
+    //            this.transform.localScale = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().escala_BtnMenu_N2_1_Herramientas_MigaPan;
+    //        }
+    //    }
+    //}
+
     // Autor Nicolas Merino Ramirez
     // Fecha 19/10/2022
     // Descripcion
@@ -113,7 +141,6 @@ public class ScriptBtnMenu_N2_1_Herramientas_MigaPan : MonoBehaviour
             this.transform.localScale = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().escala_BtnMenu_N2_1_Herramientas_MigaPan;
             enTriger = false;
         }
-
     } // Fin de - void OnTriggerEnter(Collider other)
 
 }

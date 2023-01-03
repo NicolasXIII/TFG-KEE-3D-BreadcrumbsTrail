@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3553217061146388126}
   - component: {fileID: 3612085626853578368}
   - component: {fileID: -3483512158006852087}
+  - component: {fileID: -7672315656779586424}
   m_Layer: 0
   m_Name: Panera
   m_TagString: Panera
@@ -109,4 +110,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ctrlInterfaz: {fileID: 0}
+  muruUsuario: {fileID: 0}
   List_BreadcrumbsTrails: []
+--- !u!114 &-7672315656779586424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858766989428621575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8860154ecf7ad7646901f5a5b6070441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

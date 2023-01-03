@@ -160,11 +160,7 @@ public class ScriptCtrlMuroUsuario : MonoBehaviour {
         // /////////////////    panera  Nicolas Merino Ramirez(2022-10-27)/////////
         panera = Instantiate(ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera);
         panera.transform.SetParent(this.transform);
-
-//        panera.transform.localPosition = new Vector3(-22f, -20f, -15f);
-//        panera.transform.localScale = new Vector3(32, 3.5f, 0.100000001f);
         panera.transform.gameObject.SetActive(false);
-
         panera.transform.localPosition = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().posicion_panera;
         panera.transform.localScale = ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().escala_panera;
         // Actualizo la panera de "ScriptDatosInterfaz" con los datos que he puesto a la panera actualmente

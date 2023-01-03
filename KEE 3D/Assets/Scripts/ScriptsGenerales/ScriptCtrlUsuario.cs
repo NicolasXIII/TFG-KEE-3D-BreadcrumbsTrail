@@ -252,6 +252,9 @@ public class ScriptCtrlUsuario : MonoBehaviour {
             }  // Fin de - if (GetComponent<ScriptDatosElemenItf>().listaDeHijos != null)
 
 
+            // nicolas - gestionar el uso de la rueda (mouse) del raton, de tal forma que en la panera tenga otro uso
+            // por hacer
+
             // Tomamos las indicaciones de teclado
             //		float mover_en_Z = Input.GetAxis ("Vertical");
             float mover_en_Z = Input.GetAxis("Mouse ScrollWheel");

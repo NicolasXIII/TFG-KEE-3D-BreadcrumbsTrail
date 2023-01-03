@@ -243,7 +243,7 @@ public class ScriptDatosInterfaz : MonoBehaviour {
     //tiene menú contextual
     public GameObject BtnMenu_N2_1_Herramientas_MigaPan;
 
-    // Es el gane object que va a contener los evis de referencia a elemento de interfaz que configuran la base del sistema de miga de pan
+    // Es el game object que va a contener los evis de referencia a elemento de interfaz que configuran la base del sistema de miga de pan
     public GameObject panera;
 
     public GameObject almacen_MuroUsuario;  // es un gameobgect que se genera para almacenar algunos objetos que son necesarios para la interfaz, pero que no 

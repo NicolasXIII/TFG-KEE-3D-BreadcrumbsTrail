@@ -8,20 +8,29 @@ public class ScriptCtrlPanera : MonoBehaviour
 {
     public GameObject ctrlInterfaz;
     public GameObject muruUsuario;
+    public GameObject migas_container;
     public List<GameObject> List_BreadcrumbsTrails;
+
+    // Inicializo el vector en el metodo awake porque daba problemas,
+    // y este metodo se hace antes que todo lo demas
+    private void Awake()
+    {
+        ctrlInterfaz = GameObject.FindWithTag("ctrlInterfaz");
+        muruUsuario  = GameObject.FindWithTag("MuroUsuario" );
+
+        List_BreadcrumbsTrails = new List<GameObject>();
+
+        migas_container = new GameObject();
+        migas_container.name = "migas_container";
+        migas_container.transform.SetParent(this.transform);
+        migas_container.transform.localPosition = new Vector3(0, 0, 0);
+        migas_container.transform.localScale = new Vector3(1, 1, 1);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        ctrlInterfaz = GameObject.FindWithTag("ctrlInterfaz");
-        muruUsuario = GameObject.FindWithTag("MuroUsuario");
 
-        //this.transform.localPosition = new Vector3(-22f, -20f, -15f);
-        //this.transform.localScale = new Vector3(32, 3.5f, 0.100000001f);
-        //this.transform.gameObject.SetActive(false);
-
-        // Actualizo la panera de "ScriptDatosInterfaz" con los datos que he puesto a la panera actualmente
-        //ctrlInterfaz.GetComponent<ScriptDatosInterfaz>().panera = this.gameObject;
     }
 
     // Update is called once per frame
@@ -30,6 +39,7 @@ public class ScriptCtrlPanera : MonoBehaviour
 
     }
 
+    
     // Autor Nicolas Merino Ramirez
     // Fecha 19/10/2022
     // Descripcion
@@ -101,23 +111,11 @@ public class ScriptCtrlPanera : MonoBehaviour
         // Si las migas de pan NO contienen el nuevo elemento, se annade
         if (repetido == false)
         {
-            /* 
-            // Con este if, pretendo distinguir si entra un evi o un muro
-            // es el presunto evi que entra de tipo "evi"?
-            if ("evi" == evi.transform.Find("ContenedorDeEvi_01").transform.Find("EviRefElemen(Clone)").gameObject.GetComponent<SctCtrlEviRefElemen>().tipoElementIntf_elemenRef)
-            {
-                // El evi de referencia de la panera, le pongo en el script "SctCtrlEviRefElemen" valor al atributo "migaPan_MuroDestino",
-                // dicho valor sera rellenado por el muro donde se abre el concepto original, el cual viene en el atributo "EviBase"
-                //
-                // ....migaPan_MuroDestino = ....EviBase
-                evi.transform.Find("ContenedorDeEvi_01").transform.Find("EviRefElemen(Clone)").gameObject.GetComponent<SctCtrlEviRefElemen>().migaPan_MuroDestino 
-                    =
-                evi.transform.Find("ContenedorDeEvi_01").transform.Find("EviRefElemen(Clone)").gameObject.GetComponent<SctCtrlEviRefElemen>().EviBase;
-            }*/
-
-            evi.transform.SetParent(this.transform);    // Ahijo la miga de pan a la panera
-            this.List_BreadcrumbsTrails.Add(evi);       // Annado la miga a la lista
+            evi.transform.SetParent(migas_container.transform);     // Ahijo la miga de pan al contenedor de migas de la panera
+            this.List_BreadcrumbsTrails.Add(evi);                   // Annado la miga a la lista
             this.redimensionar_Evi(evi);
+
+            this.GetComponent<ScripAccionesPanera>().activar_ultimos();
         }
     }
 
@@ -133,37 +131,25 @@ public class ScriptCtrlPanera : MonoBehaviour
         // Pongo la rotacion a 0, porque daba problema a la hora de mostar
         evi.transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
 
-        // /////////////////////////////////////////////////////
-        // ESCALA       del     EVI
-        // /////////////////////////////////////////////////////
-
+        // Escala del EVI
         evi.transform.localScale = new Vector3
-        (   ///*
-            .2f,    // El evi ocupa el 20% de la panera en x
-            1f,    // El evi ocupa el 100% de la panera en y
-            1f
-         /*
-         (muruUsuario.transform.localScale.x * .3f) // 30% de la pantalla
-         / (evi.),    
-         .5f,    // El evi ocupa el 50% de la panera en y
-         1f
-         */
-         );
+        (
+             1f/5f,
+             1f,
+             1f
+        );
 
-        // /////////////////////////////////////////////////////
-        // POSICION     del     EVI
-        // /////////////////////////////////////////////////////
-
-        // pongo el evi en la panera, pero en el eje x lo muevo ".12f" para crear una separacion
+        // Posicion del EVI
+        // pongo el evi en la panera, pero en el eje x lo muevo "la mitad de la escala en x del evi" para crear una separacion
         evi.transform.localPosition = new Vector3
         (
-            -.5f       // Lo pone a la izquierda de la panera
-            + evi.transform.localScale.x * 1f / 2f    // Evita que la mitad del primer Evi quede fuera
+            - this.transform.localScale.x             // Lo pone a la izquierda de la panera
+            //+ evi.transform.localScale.x * 1f / 2f    // Evita que la mitad del primer Evi quede fuera
                                                       // Sumo el espacio que ocupa un Evi * el Numero de evis -1
-            + (this.List_BreadcrumbsTrails.Count - 1f) * evi.transform.localScale.x             // Pone los Evis consecutivos
+            + (this.List_BreadcrumbsTrails.Count - 1f) * evi.transform.localScale.x               // Pone los Evis consecutivos
             + (this.List_BreadcrumbsTrails.Count - 1f) * evi.transform.localScale.x * 1f / 2f     // Añade espacio entre evis
             ,
-            0f, // Centrar en el eje y
+            0f,   // Centrar en el eje y
             -0.1f // Para que no se distorsionen los botones
         );
 
@@ -333,6 +319,15 @@ public class ScriptCtrlPanera : MonoBehaviour
         }
         return null;    //Nunca deberia llegar aqui
     }
+
+
+    
+
+
+
+
+
+
 
     // Autor Nicolas Merino Ramirez
     // Fecha 14/11/2022
